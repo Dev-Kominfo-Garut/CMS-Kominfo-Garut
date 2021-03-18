@@ -1,0 +1,42 @@
+1616036537a:1:{s:17:"work-progress.htm";a:9:{s:8:"fileName";s:17:"work-progress.htm";s:7:"content";s:702:"title = "Work in progress"
+url = "/work-progress.htm"
+layout = "info"
+is_hidden = 0
+==
+<div class="container p-t-3">
+    <div class="row">
+        <div class="col-xs-12">
+            <img class="center-block img-fluid" src="{{ 'assets/images/logo/thp-viola-garber-logo.png' |theme }}" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="container p-t-3">
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="text-xs-center">This site is currently under construction.</p>
+        </div>
+    </div>
+</div>
+{% partial 'imprint' %}
+{% put scripts %}
+    <script type="text/javascript" src="{{ 'assets/javascript/work-progress.js' |theme }}"></script>
+{% endput %}";s:5:"mtime";i:1615966150;s:6:"markup";s:615:"<div class="container p-t-3">
+    <div class="row">
+        <div class="col-xs-12">
+            <img class="center-block img-fluid" src="{{ 'assets/images/logo/thp-viola-garber-logo.png' |theme }}" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="container p-t-3">
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="text-xs-center">This site is currently under construction.</p>
+        </div>
+    </div>
+</div>
+{% partial 'imprint' %}
+{% put scripts %}
+    <script type="text/javascript" src="{{ 'assets/javascript/work-progress.js' |theme }}"></script>
+{% endput %}";s:4:"code";N;s:5:"title";s:16:"Work in progress";s:3:"url";s:18:"/work-progress.htm";s:6:"layout";s:4:"info";s:9:"is_hidden";s:1:"0";}}

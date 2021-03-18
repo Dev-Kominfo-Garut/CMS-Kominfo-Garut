@@ -1,0 +1,50 @@
+1616036534a:1:{s:14:"navigation.htm";a:7:{s:8:"fileName";s:14:"navigation.htm";s:7:"content";s:1034:"[viewBag]
+
+[staticMenu main]
+code = "main"
+==
+<!-- Nav -->
+<nav class="navbar fixed-top navbar-toggleable-xs navbar-light bg-white-transparent fg-primary navbar-big" id="main-navbar">
+    <button class="navbar-toggler navbar-toggler-right hidden-md-up" type="button">
+        &#9776;
+    </button>
+    <div class="container">
+        <a href="/" class="navbar-brand">&nbsp;</a>
+        <div class="w-100">
+            {% partial 'navigation/navbar-items' items=main.menuItems class='hidden-xs-down navbar-nav d-flex justify-content-end' itemClass='nav-item' %}
+        </div>
+    </div>
+</nav>
+
+<!-- http://dcdeiv.github.io/simpler-sidebar/ -->
+<div id="sidebar">
+    <div id="sidebar-wrapper" class="sidebar-wrapper bg-white fg-primary">
+        {% partial 'navigation/sidebar-items' items=main.menuItems class='list-group' itemClass='list-group-item' %}
+    </div>
+</div>
+
+{% put scripts %}
+    <script type="text/javascript" src="{{ 'assets/javascript/partials/navigation.js' |theme }}"></script>
+{% endput %}";s:5:"mtime";i:1615966150;s:6:"markup";s:988:"<!-- Nav -->
+<nav class="navbar fixed-top navbar-toggleable-xs navbar-light bg-white-transparent fg-primary navbar-big" id="main-navbar">
+    <button class="navbar-toggler navbar-toggler-right hidden-md-up" type="button">
+        &#9776;
+    </button>
+    <div class="container">
+        <a href="/" class="navbar-brand">&nbsp;</a>
+        <div class="w-100">
+            {% partial 'navigation/navbar-items' items=main.menuItems class='hidden-xs-down navbar-nav d-flex justify-content-end' itemClass='nav-item' %}
+        </div>
+    </div>
+</nav>
+
+<!-- http://dcdeiv.github.io/simpler-sidebar/ -->
+<div id="sidebar">
+    <div id="sidebar-wrapper" class="sidebar-wrapper bg-white fg-primary">
+        {% partial 'navigation/sidebar-items' items=main.menuItems class='list-group' itemClass='list-group-item' %}
+    </div>
+</div>
+
+{% put scripts %}
+    <script type="text/javascript" src="{{ 'assets/javascript/partials/navigation.js' |theme }}"></script>
+{% endput %}";s:4:"code";N;s:7:"viewBag";a:0:{}s:15:"staticMenu main";a:1:{s:4:"code";s:4:"main";}}}
