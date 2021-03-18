@@ -1,0 +1,49 @@
+1615971787a:1:{s:13:"slideshow.htm";a:6:{s:8:"fileName";s:13:"slideshow.htm";s:7:"content";s:1598:"[viewBag]
+==
+{% if slideshow and slideshow['slides'] %}
+    <div id="{{id}}" class="carousel slide" data-ride="carousel" data-interval='3500'>
+        <div class="carousel-inner" role="listbox">
+            {% for i, slide in slideshow['slides'] %}
+                {% if slide.image.path %}
+                    <div class='carousel-item{% if loop.first %} active{% endif %}'>
+                        {% if slide.link %}
+                            <a class="carousel-image-background" style="background-image: url('{{ slide.image.path }}');" alt='{{ slide.image.title }}' href='{{ slide.link }}' target='_blank'></a>
+                        {% else %}
+                            <div class="carousel-image-background" style="background-image: url('{{ slide.image.path }}');" alt='{{ slide.image.title }}'></div>
+                        {% endif %}
+                        {% if slide.title or slide.description or slide.link %}
+                            <div class="carousel-caption clearfix white-caption">
+                                {% if slide.title %}<h4 class='carousel-caption-title'>{{ slide.title }}</h4>{% endif %}
+                                {% if slide.description %}<p>{{ slide.description|raw }}</p>{% endif %}
+                                {% if slide.link %}<a class='carousel-caption-link' href='{{ slide.link }}' target='_blank'>Learn more</a>{% endif %}
+                            </div>
+                         {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}";s:5:"mtime";i:1615966150;s:6:"markup";s:1585:"{% if slideshow and slideshow['slides'] %}
+    <div id="{{id}}" class="carousel slide" data-ride="carousel" data-interval='3500'>
+        <div class="carousel-inner" role="listbox">
+            {% for i, slide in slideshow['slides'] %}
+                {% if slide.image.path %}
+                    <div class='carousel-item{% if loop.first %} active{% endif %}'>
+                        {% if slide.link %}
+                            <a class="carousel-image-background" style="background-image: url('{{ slide.image.path }}');" alt='{{ slide.image.title }}' href='{{ slide.link }}' target='_blank'></a>
+                        {% else %}
+                            <div class="carousel-image-background" style="background-image: url('{{ slide.image.path }}');" alt='{{ slide.image.title }}'></div>
+                        {% endif %}
+                        {% if slide.title or slide.description or slide.link %}
+                            <div class="carousel-caption clearfix white-caption">
+                                {% if slide.title %}<h4 class='carousel-caption-title'>{{ slide.title }}</h4>{% endif %}
+                                {% if slide.description %}<p>{{ slide.description|raw }}</p>{% endif %}
+                                {% if slide.link %}<a class='carousel-caption-link' href='{{ slide.link }}' target='_blank'>Learn more</a>{% endif %}
+                            </div>
+                         {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}";s:4:"code";N;s:7:"viewBag";a:0:{}}}
