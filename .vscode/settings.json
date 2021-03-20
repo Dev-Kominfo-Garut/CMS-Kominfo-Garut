@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "13.229.110.45",
+            "port": 8090,
+            "driver": "MySQL",
+            "name": "garut",
+            "database": "kominfogarut",
+            "username": "kominfogarut",
+            "password": "k0m1nf0!G4r03T"
+        }
+    ]
+}
