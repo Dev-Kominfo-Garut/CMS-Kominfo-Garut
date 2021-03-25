@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url('../fonts/OpenSans-Light.eot'),
+    url('../fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Light.woff') format('woff'),
+    url('../fonts/OpenSans-Light.ttf') format('truetype'),
+    url('../fonts/OpenSans-Light.svg#OpenSans-Light') format('svg'); 
+}  
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat.eot'),
+    url('../fonts/Montserrat.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Montserrat.woff') format('woff'),
+    url('../fonts/Montserrat.ttf') format('truetype'),
+    url('../fonts/Montserrat.svg#Montserrat') format('svg');
+}
