@@ -1,5 +1,6 @@
 @include('voyager-frontend::partials.meta')
 @include('voyager-frontend::partials.header')
+@include('voyager-frontend::partials.page-title')
 
 <main class="main-content">
     <div class="grid-container">
@@ -10,7 +11,7 @@
             </div>
 
             <div class="cell small-12 medium-3 sidebar">
-                <div class="card" style="background:#ff76ca">
+                <div class="card">
                     <ul class="vertical menu">
                         <li><a href="#">Page One</a></li>
                         <li><a href="#">Page Two</a></li>
@@ -22,9 +23,9 @@
                 <div class="card">
                     <img alt="" src="https://images.unsplash.com/photo-1473800447596-01729482b8eb?auto=format&fit=crop&w=500&q=50">
                     <div class="card-section">
-                        <h4>Moto Kami</h4>
-                        <p>Hidup Mulia Atau Mati Syahid!</p>
-                        <a href="#" class="button">Pelajari</a>
+                        <h4>JS Guns.</h4>
+                        <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                        <a href="#" class="button">Learn More</a>
                     </div>
                 </div>
             </div>

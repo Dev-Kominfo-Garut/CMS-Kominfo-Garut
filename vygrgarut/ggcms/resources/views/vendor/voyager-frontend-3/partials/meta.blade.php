@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 
     <meta charset="utf-8">
@@ -25,10 +25,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url('/') }}/css/app.css">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
-    
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
 
     @if (setting('site.google_analytics_tracking_id'))
     <!-- Google Analytics (gtag.js) -->
