@@ -348,4 +348,18 @@ $blocks['testimonial'] = [
     ],
 ];
 
+$blocks['company_overview'] = [
+    'name' => 'Company Overview',
+    'template' => 'voyager-page-blocks::blocks.company_overview',
+    'fields' => [
+        'content' => [
+            'field' => 'content',
+            'display_name' => 'Company Overview Content',
+            'type' => 'rich_text_box',
+            'required' => 1,
+            'placeholder' => '<p>Lorem ipsum dolor sit amet. Nullam in dui mauris.</p>',
+        ],
+    ],
+];
+
 return $blocks;

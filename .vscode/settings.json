@@ -9,7 +9,7 @@
             "port": 8090,
             "driver": "MySQL",
             "name": "garut",
-            "database": "kominfogarut",
+            "database": "kominfogarut2",
             "username": "kominfogarut",
             "password": "k0m1nf0!G4r03T"
         }
