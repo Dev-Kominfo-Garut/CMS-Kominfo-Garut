@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 
     <meta charset="utf-8">
@@ -25,10 +25,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url('/') }}/css/app.css">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
-    
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
 
     @if (setting('site.google_analytics_tracking_id'))
     <!-- Google Analytics (gtag.js) -->
@@ -56,11 +52,11 @@
 
 
 	<style>
-		footer.top-footer { background-color: #0000ff; }
-		footer.bottom-footer { background-color: #0000ff; }
-		.top-bar, .top-bar ul { background-color: #0000ff; }
+		footer.top-footer { background-color: #00FF00; }
+		footer.bottom-footer { background-color: #00FF00; }
+		.top-bar, .top-bar ul { background-color: #00FF00; }
 		a { color: #ffffff; }
-		.top-bar, .top-bar ul { background-color: #0000ff; }
+		.top-bar, .top-bar ul { background-color: #00FF00; }
 		.dropdown.menu > li > a { background: none; }
 		.top-bar .top-bar-right a { color: #ffffff; }
 		.top-bar .top-bar-right a:hover { color: #ffffff; }
