@@ -25,10 +25,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url('/') }}/css/app.css">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
-    
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
 
     @if (setting('site.google_analytics_tracking_id'))
     <!-- Google Analytics (gtag.js) -->
@@ -54,7 +50,6 @@
         </script>
     @endif
 
-
 	<style>
 		footer.top-footer { background-color: #0000ff; }
 		footer.bottom-footer { background-color: #0000ff; }
@@ -65,6 +60,14 @@
 		.top-bar .top-bar-right a { color: #ffffff; }
 		.top-bar .top-bar-right a:hover { color: #ffffff; }
 		.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: #ffffff transparent transparent; }
+        
+        .orbit-bullets button{
+            width: 35px;
+            height: 7px;
+            margin: 0;
+            border-radius: 0;
+            background-color: #cacaca;
+        }
 	</style>
 </head>
 <body>

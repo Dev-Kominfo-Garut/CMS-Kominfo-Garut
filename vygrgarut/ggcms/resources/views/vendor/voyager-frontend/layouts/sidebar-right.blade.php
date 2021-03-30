@@ -11,22 +11,14 @@
             </div>
 
             <div class="cell small-12 medium-3 sidebar">
-                <div class="card">
-                    <ul class="vertical menu">
-                        <li><a href="#">Page One</a></li>
-                        <li><a href="#">Page Two</a></li>
-                        <li><a href="#">Page Three</a></li>
-                        <li><a href="#">Page Four</a></li>
-                    </ul>
-                </div>
 
                 <div class="card">
                     <img alt="" src="https://images.unsplash.com/photo-1473800447596-01729482b8eb?auto=format&fit=crop&w=500&q=50">
                     <div class="card-section">
-                        <h4>JS Guns.</h4>
-                        <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                        <a href="#" class="button">Learn More</a>
-                    </div>
+                        <h4>Artikel Terkait</h4>
+                        <ul class="vertical menu">
+                            @include('voyager-frontend::modules.posts.posts-url', ['posts' => $relatedPosts])
+                        </ul>
                 </div>
             </div>
         </div>

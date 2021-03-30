@@ -1,4 +1,4 @@
-@extends('voyager-frontend::layouts.default')
+@extends('voyager-frontend::layouts.sidebar-right')
 @section('meta_title', $post->title)
 @section('meta_description', $post->meta_description)
 @section('page_title', $post->title)
@@ -19,7 +19,7 @@
                     <div class="vspace-1"></div>
                     <hr />
 
-                    <h2 class="text-center">Related Posts</h2>
+                    <h2 class="text-center">Artikel Terkait</h2>
                 @endif
             </div>
         </div>

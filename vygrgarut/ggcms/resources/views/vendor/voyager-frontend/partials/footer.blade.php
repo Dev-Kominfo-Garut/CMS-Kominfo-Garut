@@ -24,13 +24,19 @@
         </footer>
 
     </div> <!-- /.off-canvas-content -->
-    <script>
-        $(document).ready(function() {
-			$(document).foundation();
-        })
-    </script>
 	
-    <script src="{{ url('/') }}/js/app.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</div>
+<script src="{{ url('/') }}/js/app.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+
+{{-- @foreach($BlogPost->id as $id)
+
+..
+<img src="{!! \App\Models\BlogPost::findOrFail($id)->image; !!}" alt="">
+..
+
+@endforeach --}}
 </body>
 </html>
