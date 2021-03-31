@@ -50,16 +50,35 @@
         </script>
     @endif
 
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function () {
+            new Splide( '.splide', {
+                type   : 'loop',
+                perPage: 2,
+                perMove: 1,
+                pagination: false,
+            } ).mount();
+        } );
+    </script>
+
 	<style>
-		footer.top-footer { background-color: #0000ff; }
-		footer.bottom-footer { background-color: #0000ff; }
-		.top-bar, .top-bar ul { background-color: #0000ff; }
-		a { color: #ffffff; }
-		.top-bar, .top-bar ul { background-color: #0000ff; }
+        /** #-282f34 #-089c9e #-184424*/
+		footer.top-footer { background-color: #184424; }
+		footer.bottom-footer { background-color: #184424; }
+		.top-bar, .top-bar ul { background-color: #184424; }
+		a, p { color: #0f0f0f; }
+        a:hover {color: #fff}
+		.top-bar, .top-bar ul { background-color: #184424; }
 		.dropdown.menu > li > a { background: none; }
-		.top-bar .top-bar-right a { color: #ffffff; }
-		.top-bar .top-bar-right a:hover { color: #ffffff; }
-		.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: #ffffff transparent transparent; }
+		.top-bar .top-bar-right a { color: #fff; }
+		.top-bar .top-bar-right a:hover { color: #fff; }
+		.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: #fff transparent transparent; }
+        .menu a, .menu .button {
+            color:#fff;
+        }
         
         .orbit-bullets button{
             width: 35px;

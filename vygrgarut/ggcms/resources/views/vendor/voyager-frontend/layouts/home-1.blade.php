@@ -1,6 +1,39 @@
 @include('voyager-frontend::partials.meta')
 @include('voyager-frontend::partials.header')
 
+<style>
+.wide-article-link {
+  background-color: #fefefe;
+  /* padding: 1rem 1rem 0.5rem; */
+  border-bottom: 1px solid #cacaca;
+  margin-bottom: 1rem;
+}
+
+.wide-article-link .article-title a {
+  color: #0a0a0a;
+}
+
+.wide-article-link .article-title a:hover, .wide-article-link .article-title a:focus {
+  color: #1779ba;
+}
+
+.wide-article-link .article-elipsis .read-more {
+  font-weight: bold;
+  color: #0a0a0a;
+}
+
+.wide-article-link .article-title,
+.wide-article-link .article-author,
+.wide-article-link .article-elipsis {
+  margin-bottom: 0.25rem;
+  color: #1a1a1a;
+}
+
+.splide__arrow {
+	background:transparent;
+}
+</style>
+
 {{--  category:slider  --}}
 <main class="main-content">
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
@@ -9,43 +42,58 @@
       <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
       <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     </div>
-    <ul class="orbit-container">
-      <li class="is-active orbit-slide">
-        <figure class="orbit-figure">
-          <img class="orbit-image" src="http://placehold.it/1200x600/999?text=Slide-1" alt="Space" style="height:510px">
-          <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
-        </figure>
-      </li>
-      <li class="orbit-slide">
-        <figure class="orbit-figure">
-          <img class="orbit-image" src="https://placehold.it/1200x600/888?text=Slide-2" alt="Space" style="height:510px">
-          <figcaption class="orbit-caption">Lets Rocket!</figcaption>
-        </figure>
-      </li>
-      <li class="orbit-slide">
-        <figure class="orbit-figure">
-          <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Space" style="height:510px">
-          <figcaption class="orbit-caption">Encapsulating</figcaption>
-        </figure>
-      </li>
-      <li class="orbit-slide">
-        <figure class="orbit-figure">
-          <img class="orbit-image" src="https://placehold.it/1200x600/666&text=Slide-4" alt="Space" style="height:510px">
-          <figcaption class="orbit-caption">Outta This World</figcaption>
-        </figure>
-      </li>
-    </ul>
+	<ul class="orbit-container">
+	@php
+	$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 11)->get();
+	$z = 0;
+	
+	foreach($pengPost as $result){
+		$x = "/storage/" . $result['image'];
+		$y = $result['title'];
+		$a = $result['slug'];
+		if($z == 1){
+		echo "
+			<li class='is-active orbit-slide'>
+		";
+			
+		}else{
+		echo "
+		<li class='orbit-slide'>
+		";
+
+		}
+		echo "
+			<figure class='orbit-figure'>
+				<img class='orbit-image' src='$x' style='height: 500px'>
+				<figcaption class='orbit-caption'><a href='/blog/$a' style='color:#fff;font-weight:bold;'>$y</a></figcaption>
+			</figure>
+		</li>";
+	}
+	@endphp
+	</ul>
   </div>
-  <nav class="orbit-bullets">
-    <button class="is-active" data-slide="0">
-      <span class="show-for-sr">First slide details.</span>
-      <span class="show-for-sr" data-slide-active-label>Current Slide</span>
-    </button>
-    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-    <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-  </nav>
+	<nav class="orbit-bullets">
+	@php
+	$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 11)->get();
+	$x = -1;
+	foreach($pengPost as $result){
+		$x = $x+1;
+		if($x == 0){
+		echo "
+			<button class='is-active' data-slide='$x'><span class='show-for-sr'></span></button>
+		";
+			
+		}else{
+		echo "
+			<button data-slide='$x'><span class='show-for-sr'></span></button>
+		";
+
+		}
+	}
+	@endphp
+	</nav>
 </div>
+<hr style="border-bottom:10px solid transparent;">
 
 {{--  SLIDER HERE  --}}
 
@@ -53,68 +101,60 @@
 	<div class="grid-x">
 		<div class="cell medium-8 text-center medium-text-left">
 			<h5>Berita</h5><hr>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Berita 1
-					ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
+			@php	
+				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 3)->limit(6)->get();
+				// var_dump($blogPost);
+				foreach($blogPost as $result){
+					$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+					echo "<div class='wide-article-link'>";
+						echo "<h5 class='article-title'>";
+						echo "<a href='/blog/" . $result['slug'] . "'>";
+						echo $result['title'];
+						echo "</a>";
+						echo "</h5>";
+					echo "<div class='container'>";
+						echo "<div class='grid-x'>";
+						echo "<div class='cell medium-3'>";
+						echo "<img src='$x' style='width: 100%'>";
+						echo "</div>";
+						echo "<div class='cell medium-1' style='width:15px'>";
+						echo "</div>";
+						echo "<div class='cell medium-8'>";
+						echo "<p class='article-author'><em>" . substr($result['published_date'],0,10) . "</em></p>";
+						echo "<p class='article-elipsis'>";
+						echo  $result['excerpt'] . "... <a href='/blog/" . $result['slug'] . "' class='read-more'>Read more</a></p>";
+						echo "</div>";
+						echo "</div><br>";
+						echo "</div>";
+						echo "</div>";
+				}
+			@endphp
 		</div> <!-- /.cell -->
 		<div class="cell medium-1 text-center medium-text-left">
 		</div> <!-- /.cell -->
 		<div class="cell medium-3 text-center medium-text-left">
 			<h5>Pengumuman</h5><hr>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 2
-				</div>
+			<div class="grid-container wide-article-link" style="border:1px solid;border-bottom:3px solid;">
+				@php
+				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 4)->limit(4)->get();
+				foreach($pengPost as $result){
+					echo "<div class='grid-x'>
+					<h5 class='article-title'><a href='/blog/" . $result['slug'] . "'>" . $result['title'] . "</a></h5>
+					</div>";
+				}
+				@endphp
 			</div>
 			<div class="vspace-medium-1"></div>
 			<h5>Agenda Kegiatan</h5><hr>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 2
-				</div>
+			<div class="grid-container wide-article-link" style="border:1px solid;border-bottom:3px solid;">
+				@php
+				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 5)->limit(4)->get();
+				foreach($pengPost as $result){
+					echo "<div class='grid-x'>
+					<h5 class='article-title'><a href='/blog/" . $result['slug'] . "'>" . $result['title'] . "</a></h5>
+					</div>";
+				}
+				@endphp
 			</div>
 		</div> <!-- /.cell -->
 	</div> <!-- /.grid -->
@@ -122,67 +162,60 @@
 <hr style="border-bottom:10px solid transparent;">
 <div class="grid-container">
 	<div class="grid-x">
-		<div class="cell medium-8 text-center medium-text-left">
-			<h5>Link</h5><hr>
-				<div class="orbit" role="region" aria-label="Favorite Text Ever" data-orbit>
-				  <ul class="orbit-container">
-					<button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
-					<button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
-					<li class="is-active orbit-slide">
-						<figure class="orbit-figure">
-							<img class="orbit-image" src="http://placehold.it/1200x600/999?text=Slide-1" alt="Space" style="height:410px">
-						</figure>
-					</li>
-					<li class="orbit-slide">
-						<figure class="orbit-figure">
-							<img class="orbit-image" src="http://placehold.it/1200x600/999?text=Slide-1" alt="Space" style="height:410px">
-						</figure>
-					</li>
-					<li class="orbit-slide">
-						<figure class="orbit-figure">
-							<img class="orbit-image" src="http://placehold.it/1200x600/999?text=Slide-1" alt="Space" style="height:410px">
-						</figure>
-					</li>
-					<li class="orbit-slide">
-						<figure class="orbit-figure">
-							<img class="orbit-image" src="http://placehold.it/1200x600/999?text=Slide-1" alt="Space" style="height:410px">
-						</figure>
-					</li>
-				  </ul>
+	<div class="cell medium-8 text-center medium-text-center">
+			<h5 class="medium-text-left">Link</h5>
+			<hr>
+			<div class="splide text-center" style='background:#184424;padding-top:25px;'>
+				<div class="splide__track">
+					<ul class="splide__list">
+						@php
+						$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 6)->get();						
+						foreach($pengPost as $result){
+							$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+							$y = $result['slug'];
+							echo "<li class='splide__slide'><a href='/blog/$y'><img src='$x' class='thumbnail'></a></li>";
+						}
+						@endphp
+					</ul>
 				</div>
-		</div>
+			</div>
+		
+	</div> <!-- /.cell -->
 		<div class="cell medium-1 text-center medium-text-left">
 		</div>
-		<div class="cell medium-3 text-center medium-text-left">    
+		<div class="cell medium-3 text-center medium-text-left"> 
 			<h5>Info Grafis</h5><hr>
 				<div class="orbit" role="region" aria-label="Favorite Text Ever" data-orbit>
 				  <ul class="orbit-container">
-					<li class="is-active orbit-slide">
-					  <div style="background:orange">
-						<p><strong>This is dodgerblue.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					  </div>
-					</li>
-					<li class="orbit-slide">
-					  <div style="background:aqua">
-						<p><strong>This is rebeccapurple.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					  </div>
-					</li>
-					<li class="orbit-slide">
-					  <div style="background:darkgrey">
-						<p><strong>This is darkgoldenrod.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					  </div>
-					</li>
-					<li class="orbit-slide">
-					  <div style="background:lime">
-						<p><strong>This is lightseagreen.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					  </div>
-					</li>
+					@php
+					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 9)->limit(3)->get();
+					foreach($pengPost as $result){
+						$x = "/storage/" . $result['image'];
+						echo "<li class='is-active orbit-slide'>
+							<img class='thumbnail' src='$x' style='width: 100%'>
+						</li>";
+					}
+					@endphp
 				  </ul>
 				  <nav class="orbit-bullets">
-					<button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-					<button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-					<button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-					<button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+					@php
+					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 8)->limit(3)->get();
+					$x = -1;
+					foreach($pengPost as $result){
+						$x = $x+1;
+						if($x == 0){
+						echo "
+							<button class='is-active' data-slide='$x'><span class='show-for-sr'></span></button>
+						";
+							
+						}else{
+						echo "
+							<button data-slide='$x'><span class='show-for-sr'></span></button>
+						";
+
+						}
+					}
+					@endphp
 				  </nav>
 				</div>
 		</div>
@@ -196,24 +229,29 @@
 			<h5>Galeri Foto</h5><hr>
 			<div class="grid-container">
 				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 1
+					@php
+					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 7)->limit(3)->get();
+					foreach($pengPost as $result){
+						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:2em'>
+						<a href='/blog/" . $result['slug'] . "'><img class='thumbnail' src='$x' style='width: 100%'></a>
+						</div>";
+					}
+					@endphp
 				</div>
 			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 2
-				</div>
-			</div>
-			<div class="vspace-medium-1"></div>
 			<h5>Galeri Video</h5><hr>
 			<div class="grid-container">
 				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Agenda Kegiatan 2
+					@php
+					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 8)->limit(3)->get();
+					foreach($pengPost as $result){
+						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:2em'>
+						<a href='/blog/" . $result['slug'] . "'><img class='thumbnail' src='$x' style='width: 100%'></a>
+						</div>";
+					}
+					@endphp
 				</div>
 			</div>
 		</div> <!-- /.cell -->
@@ -221,42 +259,8 @@
 		</div> <!-- /.cell -->
 		<div class="cell medium-3 text-center medium-text-left">
 			<h5>Government Public Relation</h5><hr>
-			<div class="grid-container">
-				<div class="grid-x">
-					ini adalah isi dari Berita 1
-					ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
-			<div class="grid-container">
-				<div class="grid-x">
-				ini adalah isi dari Berita 1
-				</div>
-			</div>
+			<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
+			<div id="gpr-kominfo-widget-container" style="margin-bottom: 15px;"></div>
 		</div> <!-- /.cell -->
 	</div> <!-- /.grid -->
 </div>
