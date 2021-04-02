@@ -10,6 +10,9 @@ class Category extends Model
     
     public function post()
     {
-        return $this->hasMany(BlogPost::class)->orderBy('order', 'asc');
+        return $this->hasMany(BlogPost::class)->where([
+            ['status', '=', 'PUBLISHED'],
+            ['featured', '=', '1'],
+        ])->orderBy('order', 'desc');
     }
 }

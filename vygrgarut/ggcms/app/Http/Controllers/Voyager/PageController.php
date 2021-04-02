@@ -322,16 +322,19 @@ class PageController extends VoyagerBaseController
             $blocks = is_array($template->blocks) ? $template : json_decode($template->blocks, true);
 
         // dd($blocks);
-        for ($i = 0; $i < count($blocks); $i++) {
-            list($type, $path) = explode('|', $blocks[$i]);
+        if(count($blocks) != 0){
 
-            $page->blocks()->create([
-                'type' => $type,
-                'path' => $path,
-                'data' => $type === 'include' ? '' : $this->generatePlaceholders($path),
-                'order' => time(),
-            ]);
-          }
+            for ($i = 0; $i < count($blocks); $i++) {
+                list($type, $path) = explode('|', $blocks[$i]);
+    
+                $page->blocks()->create([
+                    'type' => $type,
+                    'path' => $path,
+                    'data' => $type === 'include' ? '' : $this->generatePlaceholders($path),
+                    'order' => time(),
+                ]);
+              }
+            }
         }
 
         $slug = $this->getSlug($request);
@@ -444,22 +447,25 @@ class PageController extends VoyagerBaseController
         $blocks = is_array($template->blocks) ? $template : json_decode($template->blocks, true);
 
         // dd($blocks);
-        for ($i = 0; $i < count($blocks); $i++) {
-            list($type, $path) = explode('|', $blocks[$i]);
+        if(count($blocks) != 0){
 
-            // $b[$i] = [
-            //     'type' => $type,
-            //     'path' => $path,
-            //     'data' => $type === 'include' ? '' : $this->generatePlaceholders($path),
-            //     'order' => time(),
-            // ];
-            $data->blocks()->create([
-                'type' => $type,
-                'path' => $path,
-                'data' => $type === 'include' ? '' : $this->generatePlaceholders($path),
-                'order' => time(),
-            ]);
-          }
+            for ($i = 0; $i < count($blocks); $i++) {
+                list($type, $path) = explode('|', $blocks[$i]);
+    
+                // $b[$i] = [
+                //     'type' => $type,
+                //     'path' => $path,
+                //     'data' => $type === 'include' ? '' : $this->generatePlaceholders($path),
+                //     'order' => time(),
+                // ];
+                $data->blocks()->create([
+                    'type' => $type,
+                    'path' => $path,
+                    'data' => $type === 'include' ? '' : $this->generatePlaceholders($path),
+                    'order' => time(),
+                ]);
+              }
+        }
         
         //   $data->blocks()->insert([...$b]);
 

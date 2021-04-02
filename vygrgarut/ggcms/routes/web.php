@@ -21,3 +21,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+
+Route::group([
+    'prefix' => 'blog', // Must match its `slug` record in the DB > `data_types`
+    'middleware' => ['web'],
+    'as' => 'voyager-blog-custom.blog.',
+    'namespace' => 'App\Http\Controllers',
+], function () {
+    Route::get('/', ['uses' => 'PostController@getPosts', 'as' => 'list']);
+    Route::get('/{category}', ['uses' => 'PostController@getPostsCategory', 'as' => 'category']);
+    Route::get('{category}/{slug}', ['uses' => 'PostController@getPost', 'as' => 'post']);
+});

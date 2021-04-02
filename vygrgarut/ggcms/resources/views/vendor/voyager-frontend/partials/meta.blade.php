@@ -66,12 +66,12 @@
 
 	<style>
         /** #-282f34 #-089c9e #-184424*/
-		footer.top-footer { background-color: #184424; }
-		footer.bottom-footer { background-color: #184424; }
-		.top-bar, .top-bar ul { background-color: #184424; }
+		footer.top-footer { background-color: {{setting('site.color_1')}}; }
+		footer.bottom-footer { background-color: {{setting('site.color_1')}}; }
+		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
 		a, p { color: #0f0f0f; }
         a:hover {color: #fff}
-		.top-bar, .top-bar ul { background-color: #184424; }
+		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
 		.dropdown.menu > li > a { background: none; }
 		.top-bar .top-bar-right a { color: #fff; }
 		.top-bar .top-bar-right a:hover { color: #fff; }
