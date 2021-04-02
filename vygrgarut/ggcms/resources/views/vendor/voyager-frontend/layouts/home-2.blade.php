@@ -111,6 +111,7 @@
 				}
 				@endphp
 			</div>
+			<a href="/blog/pengumuman"><i class='fa fa-folder-open'></i> Arsip Pengumuman</a>
 			<div class="vspace-medium-1"></div>
 			<h5>Agenda Kegiatan</h5><hr>
 			<div class="grid-container wide-article-link" style="border:1px solid;border-bottom:3px solid;">
@@ -123,6 +124,7 @@
 				}
 				@endphp
 			</div>
+			<a href="/blog/agendakegiatan"><i class='fa fa-folder-open'></i> Arsip Agenda Kegiatan</a>
 		</div> <!-- /.cell -->
 		<div class="cell medium-1 text-center medium-text-left">
 		</div> <!-- /.cell -->
@@ -147,7 +149,7 @@
 						echo "<div class='cell medium-1' style='width:15px'>";
 						echo "</div>";
 						echo "<div class='cell medium-8'>";
-						echo "<p class='article-author'><em>" . substr($result['published_date'],0,10) . "</em></p>";
+						echo "<p class='article-author'><i class='fa fa-calendar-alt'></i> <em>" . substr($result['published_date'],0,10) . "</em> | <i class='fa fa-eye'></i> " . rand(1,99) . "</p>";
 						echo "<p class='article-elipsis'>";
 						echo  $result['excerpt'] . "... <a href='/blog/" . $result['slug'] . "' class='read-more'>Read more</a></p>";
 						echo "</div>";
@@ -156,6 +158,7 @@
 						echo "</div>";
 				}
 			@endphp
+			<a href="/blog/berita"><i class='fa fa-folder-open'></i> Arsip Berita</a>
 		</div> <!-- /.cell -->
 	</div> <!-- /.grid -->
 </div>
@@ -167,6 +170,16 @@
 		<h5 class='text-center'>Link</h5>
 	</div>
 	<div class="cell medium-12 text-center medium-text-center" style='background:#282f34'>
+		<script>
+			document.addEventListener( 'DOMContentLoaded', function () {
+				new Splide( '.splide', {
+					type   : 'loop',
+					perPage: 5,
+					perMove: 1,
+					pagination: false,
+				} ).mount();
+			} );
+		</script>
 			<br>
 			<div class="splide">
 				<div class="splide__track">
@@ -174,12 +187,13 @@
 						@php
 						$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 6)->get();						
 						foreach($pengPost as $result){
-							$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+							$x = "/storage/" . $result['image'];
 							$y = $result['slug'];
-							echo "<li class='splide__slide'><a href='/blog/$y'><img src='$x' class='thumbnail'></a></li>";
+							echo "<li class='splide__slide'><a href='/blog/$y'><img src='$x' style='width:180px;border-radius: 15px;'></a></li>";
 						}
 						@endphp
 					</ul>
+					<br>
 				</div>
 			</div>
 		
@@ -202,6 +216,7 @@
 						</div>";
 					}
 					@endphp
+					<a href="/blog/galerifoto"><i class='fa fa-folder-open'></i> Arsip Foto</a>
 				</div>
 			</div>
 		</div>
@@ -218,6 +233,7 @@
 						</div>";
 					}
 					@endphp
+					<a href="/blog/galerivideo"><i class='fa fa-folder-open'></i> Arsip Video</a>
 				</div>
 			</div>
 		</div> <!-- /.cell -->

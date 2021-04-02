@@ -53,16 +53,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-    <script>
-        document.addEventListener( 'DOMContentLoaded', function () {
-            new Splide( '.splide', {
-                type   : 'loop',
-                perPage: 2,
-                perMove: 1,
-                pagination: false,
-            } ).mount();
-        } );
-    </script>
 
 	<style>
         /** #-282f34 #-089c9e #-184424*/

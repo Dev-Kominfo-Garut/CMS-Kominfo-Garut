@@ -43,7 +43,7 @@
 
                 <div class="header-logo float-left">
                     <a href="{{ url('/') }}">
-                        <img src="{{ url('/') }}/images/logo.png" alt="{{ setting('site.title') }}" title="{{ setting('site.title') }}" />
+                        <img src="/storage/{{ setting('site.logo') }}" alt="{{ setting('site.title') }}" title="{{ setting('site.title') }}" />
                     </a>
                 </div>
 
