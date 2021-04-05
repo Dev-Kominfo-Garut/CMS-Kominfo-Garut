@@ -57,6 +57,8 @@ class PostController extends VoyagerBaseController
                 ['status', '=', 'PUBLISHED'],
             ])->whereDate('published_date', '<=', Carbon::now())
             ->firstOrFail();
+            
+        $post->increment('viewer', 1);
 
         // Related posts (based on tags)
         $relatedPosts = array();

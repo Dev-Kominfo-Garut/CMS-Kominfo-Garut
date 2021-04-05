@@ -8,7 +8,9 @@ tinymce.init(
             "?path=js/skins/voyager",
         min_height: 600,
         resize: "vertical",
-        plugins: "link image media code table textcolor lists",
+        plugins: "link image code table textcolor lists media",
+        media_alt_source: false,
+        media_live_embeds: true,
         extended_valid_elements:
             "input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]",
         file_browser_callback: function (field_name, url, type, win) {
