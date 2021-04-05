@@ -152,7 +152,7 @@
 
             @section('submit-buttons')
                 <button type="submit" class="btn btn-primary pull-right">
-                     @if($edit){{ __('voyager::post.update') }}@else <i class="icon wb-plus-circle"></i> {{ __('voyager::post.new') }} @endif
+                     @if($edit){{ __('Edit Template') }}@else <i class="icon wb-plus-circle"></i> {{ __('New Template') }} @endif
                 </button>
             @stop
             @yield('submit-buttons')
