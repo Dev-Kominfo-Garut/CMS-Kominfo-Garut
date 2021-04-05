@@ -54,6 +54,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=606b1ade3166d20011624e4a&product=inline-share-buttons" async="async"></script>
+
 	<style>
         /** #-282f34 #-089c9e #-184424*/
 		footer.top-footer { background-color: {{setting('site.color_1')}}; }

@@ -12,6 +12,7 @@
 
     <div class="grid-container">
         <div class="grid-x">
+            <div class="sharethis-inline-share-buttons"></div>
             <div class="cell small-12">
                 {!! $post->body !!}
 
