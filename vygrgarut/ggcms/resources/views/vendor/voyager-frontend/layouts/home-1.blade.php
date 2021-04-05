@@ -261,7 +261,7 @@ h5{ color:{{ setting('site.color_1') }}; }
 					foreach($pengPost as $result){
 						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
 						$y = $y+1;
-						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:2em'>
+						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:5px'>
 						<img class='thumbnail' src='$x' style='width: 100%' data-open='exampleModal$y'>
 						</div>";
 						
@@ -291,7 +291,7 @@ h5{ color:{{ setting('site.color_1') }}; }
 						$y = $y+1;
 						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
 						$z = str_replace('"', "'", $result['excerpt']);
-						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:2em'>
+						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:5px'>
 						<img class='thumbnail' src='$x' style='width: 100%' data-open='vModal$y'>
 						</div>";
 						
