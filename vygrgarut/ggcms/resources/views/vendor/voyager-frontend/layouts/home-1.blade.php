@@ -131,7 +131,7 @@ h5{ color:{{ setting('site.color_1') }}; }
 						echo "<div class='cell medium-1' style='width:15px'>";
 						echo "</div>";
 						echo "<div class='cell medium-8'>";
-						echo "<p class='article-author'><i class='fa fa-calendar-alt'></i> <em>" . substr($result['published_date'],0,10) . "</em> | <i class='fa fa-eye'></i> " . rand(1,99) . "</p>";
+						echo "<p class='article-author'><i class='fa fa-calendar-alt'></i> <em>" . substr($result['published_date'],0,10) . "</em> | <i class='fa fa-eye'></i> " . $result['viewer'] . "</p>";
 						echo "<p class='article-elipsis'>";
 						echo  $result['excerpt'] . "... <a href='/blog/berita/" . $result['slug'] . "' class='read-more'>Read more</a></p>";
 						echo "</div>";
