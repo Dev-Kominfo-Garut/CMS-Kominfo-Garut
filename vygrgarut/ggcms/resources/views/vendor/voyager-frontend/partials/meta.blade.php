@@ -59,8 +59,8 @@
 		footer.top-footer { background-color: {{setting('site.color_1')}}; }
 		footer.bottom-footer { background-color: {{setting('site.color_1')}}; }
 		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
-		a, p { color: #0f0f0f; }
-        a:hover {color: #fff}
+		a, p { color: #050505; }
+        a:hover {color: {{ setting('site.color_1') }}}
 		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
 		.dropdown.menu > li > a { background: none; }
 		.top-bar .top-bar-right a { color: #fff; }

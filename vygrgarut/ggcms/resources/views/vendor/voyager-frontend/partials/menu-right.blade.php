@@ -5,6 +5,7 @@
     <li>
         <a href="#">My Account</a>
         <ul class="menu">
+		{{ menu('social') }}
             <li>
                 <a href="{{ route('voyager-frontend.account') }}">Update Account</a>
             </li>
