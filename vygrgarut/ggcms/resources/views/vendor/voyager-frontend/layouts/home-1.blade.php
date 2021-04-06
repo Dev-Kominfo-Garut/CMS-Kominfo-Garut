@@ -3,18 +3,19 @@
 
 <style>
 .wide-article-link {
-  background-color: #fefefe;
-  /* padding: 1rem 1rem 0.5rem; */
-  border-bottom: 1px solid #cacaca;
+  background-color: #fdfdfd;
+  padding: 1rem 1rem 0.5rem;
+  border-bottom: 2px solid {{setting('site.color_1')}};
   margin-bottom: 1rem;
 }
 
 .wide-article-link .article-title a {
-  color: #0a0a0a;
+  color: {{setting('site.color_1')}};
+  font-weight: bold;
 }
 
 .wide-article-link .article-title a:hover, .wide-article-link .article-title a:focus {
-  color: #1779ba;
+  color: {{setting('site.color_1')}};
 }
 
 .wide-article-link .article-elipsis .read-more {
@@ -26,14 +27,14 @@
 .wide-article-link .article-author,
 .wide-article-link .article-elipsis {
   margin-bottom: 0.25rem;
-  color: #1a1a1a;
+  color: #454545;
 }
 
 .splide__arrow {
 	background:transparent;
 }
 
-h5{ color:{{ setting('site.color_1') }}; }
+h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 </style>
 
 {{--  category:slider  --}}
@@ -146,7 +147,7 @@ h5{ color:{{ setting('site.color_1') }}; }
 		</div> <!-- /.cell -->
 		<div class="cell medium-3 text-center medium-text-left">
 			<h5>Pengumuman</h5><hr>
-			<div class="grid-container wide-article-link" style="border:1px solid;border-bottom:5px solid {{ setting('site.color_1') }};">
+			<div class="grid-container wide-article-link" style="border:2px solid {{ setting('site.color_1') }};;border-bottom:5px solid {{ setting('site.color_1') }};">
 				@php
 				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 4)->orderBy('published_date','desc')->limit(4)->get();
 				foreach($pengPost as $result){
@@ -158,7 +159,7 @@ h5{ color:{{ setting('site.color_1') }}; }
 			</div><a href="/blog/pengumuman"><i class='fa fa-folder-open'></i> Arsip Pengumuman</a>
 			<div class="vspace-medium-1"></div>
 			<h5>Agenda Kegiatan</h5><hr>
-			<div class="grid-container wide-article-link" style="border:1px solid;border-bottom:5px solid {{ setting('site.color_1') }};">
+			<div class="grid-container wide-article-link" style="border:2px solid {{ setting('site.color_1') }};;border-bottom:5px solid {{ setting('site.color_1') }};">
 				@php
 				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 5)->orderBy('published_date','desc')->limit(4)->get();
 				foreach($pengPost as $result){
@@ -281,6 +282,7 @@ h5{ color:{{ setting('site.color_1') }}; }
 					<a href="/blog/galerifoto"><i class='fa fa-folder-open'></i> Arsip Foto</a>
 				</div>
 			</div>
+			<div class="vspace-medium-1"></div>
 			<h5>Galeri Video</h5><hr>
 			<div class="grid-container">
 				<div class="grid-x">

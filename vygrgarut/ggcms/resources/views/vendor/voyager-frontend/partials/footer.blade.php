@@ -8,15 +8,13 @@
 				  
 				  </div>
 				  <div class="columns small-4 large-7 medium-text-left" style="padding-left:15px"><!-- ... -->
-					<a onclick="window.open('{{ setting('site.link_facebook') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/fb.png" width="30px"> {{ setting('site.facebook') }}</a> 
-					<a onclick="window.open('{{ setting('site.link_instagram') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/ig.png" width="30px"> {{ setting('site.instagram') }}</a> 
-					<a onclick="window.open('{{ setting('site.link_twitter') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/twitter.png" width="30px"> {{ setting('site.twitter') }}</a> 
-					<a onclick="window.open('{{ setting('site.link_youtube') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/yt.png" width="30px"> {{ setting('site.youtube') }}</a> <br>
+					<a onclick="window.open('{{ setting('site.link_facebook') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/fb.png" width="16px"> {{ setting('site.facebook') }}</a> 
+					<a onclick="window.open('{{ setting('site.link_instagram') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/ig.png" width="16px"> {{ setting('site.instagram') }}</a> 
+					<a onclick="window.open('{{ setting('site.link_twitter') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/twitter.png" width="16px"> {{ setting('site.twitter') }}</a> 
+					<a onclick="window.open('{{ setting('site.link_youtube') }}');" href="#" style="color:white"><img src="/storage/settings/April2021/yt.png" width="16px"> {{ setting('site.youtube') }}</a> <br>
 					
-<pre style="padding-left:350px">Jumlah Pengunjung : @php echo rand(1,2087)."\n"; @endphp
-Online            : @php echo rand(1,20)."\n"; @endphp
-Hari Ini          : @php echo rand(1,40)."\n"; @endphp
-s/d Hari Kemarin  : @php echo rand(1,120)."\n"; @endphp
+<pre style="padding-left:350px">@php $dc = exec('cat /home/ubuntu/awstatall.log',$red); foreach($red as $rd){echo $rd."\n";} @endphp
+@php $xc = exec('cat /home/ubuntu/awstat.log',$res); foreach($res as $r){echo $r."\n";} @endphp
 </pre>
 				  
 				  </div>

@@ -20,8 +20,8 @@
     <!-- Icons -->
     <meta name="msapplication-TileImage" content="{{ url('/') }}/ms-tile-icon.png" />
     <meta name="msapplication-TileColor" content="#8cc641" />
-    <link rel="shortcut icon" href="{{ url('/') }}/images/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" href="{{ url('/') }}/images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/storage/{{ setting('admin.icon_image') }}" />
+    <link rel="apple-touch-icon-precomposed" href="/storage/{{ setting('admin.icon_image') }}" />
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url('/') }}/css/app.css">
@@ -55,21 +55,39 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=606b1ade3166d20011624e4a&product=inline-share-buttons" async="async"></script>
-
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
 	<style>
-        /** #-282f34 #-089c9e #-184424*/
+	/** #-282f34 #-089c9e #-184424*/
+		body {
+			
+			font-family: 'Montserrat', sans-serif;
+			
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
+	color: #454545;
+	background-color: #fdfdfd;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: 100%;
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased !important;
+	text-align: justify;
+		}
+		h5 { font-family: 'Montserrat', sans-serif; }
+		hr { border-bottom: 2px solid {{setting('site.color_1')}}; }
 		footer.top-footer { background-color: {{setting('site.color_1')}}; }
 		footer.bottom-footer { background-color: {{setting('site.color_1')}}; }
 		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
-		a, p { color: #050505; }
+		a, p { color: #454545; }
         a:hover {color: {{ setting('site.color_1') }}}
 		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
 		.dropdown.menu > li > a { background: none; }
-		.top-bar .top-bar-right a { color: #fff; }
-		.top-bar .top-bar-right a:hover { color: #fff; }
-		.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: #fff transparent transparent; }
+		.top-bar .top-bar-right a { color: #fdfdfd; font-weight: bold;}
+		.top-bar .top-bar-right a:hover { color: #fdfdfd; font-weight: bold;}
+		.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: #fdfdfd transparent transparent; }
         .menu a, .menu .button {
-            color:#fff;
+	    color:#fdfdfd;
+		font-weight: bold;
         }
         
         .orbit-bullets button{
