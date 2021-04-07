@@ -153,8 +153,8 @@ foreach ($columns as $i => $block) {
         'template' => 'voyager-page-blocks::blocks.' . $block,
     ];
     for ($col = 1; $col <= $numCols; $col++) {
-        $blocks[$block]['fields']["html_content_{$col}"] = [
-            'field' => "html_content_{$col}",
+        $blocks[$block]['fields']["html_content_{$numCols}"] = [
+            'field' => "html_content_{$numCols}",
             'display_name' => "Column {$col} content",
             'type' => 'rich_text_box',
             'required' => 0,

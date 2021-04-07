@@ -193,6 +193,8 @@ return [
     'additional_js' => [
         //'js/custom.js',
         'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/plugins/media/plugin.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/plugins/table/plugin.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/plugins/image/plugin.min.js',
         'js/tinymce_customize.js'
     ],
 

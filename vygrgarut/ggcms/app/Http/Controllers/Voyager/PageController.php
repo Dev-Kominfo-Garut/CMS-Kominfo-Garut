@@ -317,7 +317,7 @@ class PageController extends VoyagerBaseController
         $template = Template::find($request->template_id);
         
         if($page->template_id != $request->template_id){
-            $blocks = PageBlocks::whereIn('page_id', $id)->delete();
+            $blocks = PageBlock::where('page_id', $id)->delete();
 
             $blocks = is_array($template->blocks) ? $template : json_decode($template->blocks, true);
 
