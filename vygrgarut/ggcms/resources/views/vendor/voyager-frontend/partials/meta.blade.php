@@ -77,7 +77,7 @@
 		hr { border-bottom: 2px solid {{setting('site.color_1')}}; }
 		footer.top-footer { background-color: {{setting('site.color_1')}}; }
 		footer.bottom-footer { background-color: {{setting('site.color_1')}}; }
-		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
+		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}};color:#fdfdfd }
 		a, p { color: #454545; }
         a:hover {color: {{ setting('site.color_1') }}}
 		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
@@ -100,6 +100,20 @@
 	.orbit-bullets button.is-active {
 	    background-color: {{setting('site.color_1')}};
 	}	
+    .tetews {background-color:{{setting('site.color_1')}};}
+    .map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
 	</style>
 </head>
 <body>

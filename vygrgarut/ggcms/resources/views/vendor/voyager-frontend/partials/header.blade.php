@@ -1,5 +1,4 @@
-<header id="header" class="topbar-sticky-shrink-header"></header>
-<div class="off-canvas position-right" id="offCanvas" data-off-canvas data-transition="push" style="height:0px">
+<div class="off-canvas position-right tetews"  id="offCanvas" data-off-canvas data-transition="push">
     <a href="#" class="close-button off-canvas-menu-icon-close" data-close="offCanvas">
         <span aria-hidden="true">&times;</span>
     </a>
@@ -20,30 +19,20 @@
         {{ menu('social', 'voyager-frontend::partials.social') }}
     </ul>
 </div>
-
-<div class="off-canvas-content" data-off-canvas-content>
-    <div class="header-site-search" data-toggle-search>
-        <div class="grid-container">
-            <div class="grid-x">
-                <div class="cell medium-8 medium-offset-2">
-                    @include('voyager-frontend::partials.search-box')
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div data-sticky-container>
-    <div data-sticky data-margin-top='0' data-top-anchor="header:bottom" data-btm-anchor="content:bottom">
-        <div class="top-bar topbar-sticky-shrink">
+    <div data-sticky-container >
+        <div class="top-bar" data-sticky data-margin-top="0">
             <div class="top-bar-left">
-                <a href="#" class="off-canvas-menu-icon float-right hide-for-medium" data-open="offCanvas">
+                <a href="#" class="off-canvas-menu-icon float-right hide-for-medium" data-open="offCanvas" style="color:#fdfdfd">
                     <i class="fas fa-bars"></i> <span>Menu</span>
+                </a>
+
+                <a href="/pencarian" class="search-icon-mobile float-right hide-for-medium" style="color:#fdfdfd">
+                    <i class="fas fa-search"></i>
                 </a>
 
                 <div class="header-logo float-left">
                     <a href="{{ url('/') }}">
-                        <img src="/storage/{{ setting('site.logo') }}" alt="{{ setting('site.title') }}" title="{{ setting('site.title') }}" />
+                        <img src="{{ url('/') }}/images/logo.png" alt="{{ setting('site.title') }}" title="{{ setting('site.title') }}" />
                     </a>
                 </div>
 
@@ -59,5 +48,3 @@
             </div>
         </div>
     </div>
-</div>
-<div id="content">

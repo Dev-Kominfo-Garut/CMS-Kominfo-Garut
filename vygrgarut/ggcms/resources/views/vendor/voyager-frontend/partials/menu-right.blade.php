@@ -1,15 +1,16 @@
-    <li><a href="/pencarian"><i class='fa fa-search'></i></a></li>
+<li class="hide-for-small-only">
+    <a href="/pencarian">
+        <i class="fas fa-search"></i>
+    </a>
+</li>
 @if (Auth::guest())
     <li><a href="{{ route('login') }}">Login</a></li>
     <li><a href="{{ route('register') }}">Register</a></li>
 @else
-    <li><a href="#">Custom Menu</a>
-	{!! menu('user') !!}
-    </li>
     <li>
-	
-	<a href="#">My Account</a>
+        <a href="#">My Account</a>
         <ul class="menu">
+            {{ menu('user','voyager-frontend::partials.social') }}
             <li>
                 <a href="{{ route('voyager-frontend.account') }}">Update Account</a>
             </li>

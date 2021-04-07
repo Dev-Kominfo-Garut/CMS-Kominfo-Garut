@@ -2,7 +2,7 @@
             <div class="grid-container full" style="padding-left:1rem;padding-right:1rem;">
                 <div class="grid-x" style="color:white;">
 					
-				  <div class="columns small-2 large-2 medium-text-left">
+				  <div class="columns small-4 large-2 medium-text-left">
 					<img src="/storage/{{ setting('site.logo') }}">
 					{{ setting('site.address') }}
 				  
@@ -18,8 +18,11 @@
 </pre>
 				  
 				  </div>
-				  <div class="columns small-2 large-3 medium-text-right"><!-- ... -->
+				  <div class="columns small-4 large-3 medium-text-right" style="padding-left:15px"><!-- ... -->
+				  
+				  <div class="map-responsive">
 				  {!! setting('site.map') !!}
+</div>
 				  </div>
                 </div> <!-- /.grid -->
             </div> <!-- /.grid-container -->
@@ -28,7 +31,6 @@
     </div> <!-- /.off-canvas-content -->
 	
 <script src="{{ url('/') }}/js/app.js"></script>
-<script src="{{ url('/') }}/js/BigPicture.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>
