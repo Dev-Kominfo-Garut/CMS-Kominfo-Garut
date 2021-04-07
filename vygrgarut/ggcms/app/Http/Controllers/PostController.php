@@ -6,6 +6,7 @@ use Pvtl\VoyagerBlog\BlogPost;
 // use Pvtl\VoyagerBlog\Category;
 use App\Models\Category;
 use Illuminate\Support\Carbon;
+use Illuminate\Http\Request;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
 class PostController extends VoyagerBaseController
@@ -21,18 +22,18 @@ class PostController extends VoyagerBaseController
     {
         // Get featured post
         $featuredPost = BlogPost::where([
-                ['status', '=', 'PUBLISHED'],
-                ['featured', '=', '1'],
-            ])->whereDate('published_date', '<=', Carbon::now())
+            ['status', '=', 'PUBLISHED'],
+            ['featured', '=', '1'],
+        ])->whereDate('published_date', '<=', Carbon::now())
             ->orderBy('created_at', 'desc')
             ->first();
         $featuredPostId = $featuredPost ? $featuredPost->id : 0;
 
         // Get all posts
         $posts = BlogPost::where([
-                ['status', '=', 'PUBLISHED'],
-                ['id', '!=', $featuredPostId],
-            ])->whereDate('published_date', '<=', Carbon::now())
+            ['status', '=', 'PUBLISHED'],
+            ['id', '!=', $featuredPostId],
+        ])->whereDate('published_date', '<=', Carbon::now())
             ->orderBy('created_at', 'desc')
             ->paginate(12);
 
@@ -53,11 +54,11 @@ class PostController extends VoyagerBaseController
     {
         // The post
         $post = BlogPost::where([
-                ['slug', '=', $slug],
-                ['status', '=', 'PUBLISHED'],
-            ])->whereDate('published_date', '<=', Carbon::now())
+            ['slug', '=', $slug],
+            ['status', '=', 'PUBLISHED'],
+        ])->whereDate('published_date', '<=', Carbon::now())
             ->firstOrFail();
-            
+
         $post->increment('viewer', 1);
 
         // Related posts (based on tags)
@@ -65,12 +66,12 @@ class PostController extends VoyagerBaseController
         if (!empty(trim($post->tags))) {
             $tags = explode(',', $post->tags);
             $relatedPosts = BlogPost::where([
-                    ['id', '!=', $post->id],
-                ])->where(function ($query) use ($tags) {
-                    foreach ($tags as $tag) {
-                        $query->orWhere('tags', 'LIKE', '%'.trim($tag).'%');
-                    }
-                })->limit(4)
+                ['id', '!=', $post->id],
+            ])->where(function ($query) use ($tags) {
+                foreach ($tags as $tag) {
+                    $query->orWhere('tags', 'LIKE', '%' . trim($tag) . '%');
+                }
+            })->limit(4)
                 ->orderBy('created_at', 'desc')
                 ->get();
         }
@@ -85,9 +86,9 @@ class PostController extends VoyagerBaseController
     {
         // Get featured post
         $featuredPost = BlogPost::where([
-                ['status', '=', 'PUBLISHED'],
-                ['featured', '=', '1'],
-            ])->whereDate('published_date', '<=', Carbon::now())
+            ['status', '=', 'PUBLISHED'],
+            ['featured', '=', '1'],
+        ])->whereDate('published_date', '<=', Carbon::now())
             ->orderBy('created_at', 'desc')
             ->first();
         $featuredPostId = $featuredPost ? $featuredPost->id : 0;
@@ -96,15 +97,43 @@ class PostController extends VoyagerBaseController
 
         // Get all posts
         $posts = BlogPost::where([
-                ['status', '=', 'PUBLISHED'],
-                ['id', '!=', $featuredPostId],
-                ['category_id', $cat->id]
-            ])->whereDate('published_date', '<=', Carbon::now())
+            ['status', '=', 'PUBLISHED'],
+            ['id', '!=', $featuredPostId],
+            ['category_id', $cat->id]
+        ])->whereDate('published_date', '<=', Carbon::now())
             ->orderBy('created_at', 'desc')
             ->paginate(12);
-        
+
 
         return view("{$this->viewPath}::modules/posts/posts", [
+            'featuredPost' => $featuredPost,
+            'posts' => $posts,
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        // return $request->q;
+        // Get featured post
+        // Get featured post
+        $featuredPost = BlogPost::where([
+            ['status', '=', 'PUBLISHED'],
+            ['featured', '=', '1'],
+        ])->whereDate('published_date', '<=', Carbon::now())
+            ->orderBy('created_at', 'desc')
+            ->first();
+        $featuredPostId = $featuredPost ? $featuredPost->id : 0;
+
+        // Get all posts
+        $posts = BlogPost::where([
+            ['status', '=', 'PUBLISHED'],
+            ['id', '!=', $featuredPostId],
+        ])->whereDate('published_date', '<=', Carbon::now())
+        ->where('title', 'like', '%'.$request->q.'%')
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        return view("{$this->viewPath}::modules/posts/search", [
             'featuredPost' => $featuredPost,
             'posts' => $posts,
         ]);

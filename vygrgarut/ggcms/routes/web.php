@@ -33,3 +33,6 @@ Route::group([
     Route::get('/{category}', ['uses' => 'PostController@getPostsCategory', 'as' => 'category']);
     Route::get('{category}/{slug}', ['uses' => 'PostController@getPost', 'as' => 'post']);
 });
+
+
+Route::get('pencarian', ['uses' => 'App\Http\Controllers\PostController@search', 'as' => 'pencarian']);
