@@ -11,7 +11,6 @@
 
 .wide-article-link .article-title a {
   color: {{setting('site.color_1')}};
-  font-weight: bold;
 }
 
 .wide-article-link .article-title a:hover, .wide-article-link .article-title a:focus {
@@ -68,7 +67,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 		}
 		echo "
 			<figure class='orbit-figure'>
-				<img class='orbit-image' src='$x' style='height: 430px'>
+				<img class='orbit-image' src='$x' style='height: 440px'>
 			</figure>
 		</li>";
 	}
@@ -85,26 +84,26 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 			@endphp
 			<br>
 		</marquee>
-	<nav class="orbit-bullets">
-	@php
-	$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 11)->get();
-	$x = -1;
-	foreach($pengPost as $result){
-		$x = $x+1;
-		if($x == 0){
-		echo "
-			<button class='is-active' data-slide='$x'><span class='show-for-sr'></span></button>
-		";
-			
-		}else{
-		echo "
-			<button data-slide='$x'><span class='show-for-sr'></span></button>
-		";
+        <nav class="orbit-bullets" style='paddding-bottom:20px;'>
+        @php
+        $pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 11)->get();
+        $x = -1;
+        foreach($pengPost as $result){
+                $x = $x+1;
+                if($x == 0){
+                echo "
+                        <button class='is-active' data-slide='$x'><span class='show-for-sr'></span></button>
+                ";
 
-		}
-	}
-	@endphp
-	</nav>
+                }else{
+                echo "
+                        <button data-slide='$x'><span class='show-for-sr'></span></button>
+                ";
+
+                }
+        }
+        @endphp
+        </nav>
 </div>
 <hr style="border-bottom:10px solid transparent;">
 
@@ -268,8 +267,8 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 						
 						echo "
 						
-							<div class='reveal' id='exampleModal$y' data-reveal data-animation-in='spin-in' data-animation-out='spin-out'>
-							  <h1>".$result['title']."</h1>
+							<div class='reveal' id='exampleModal$y' data-reveal data-animation-in='fade-in' data-animation-out='fade-out'>
+							  <h5>".$result['title']."</h5>
 							  <img class='thumbnail' src='$x' style='width: 100%'>
 							  <button class='close-button' data-close aria-label='Close modal' type='button'>
 								<span aria-hidden='true'>&times;</span>
@@ -301,7 +300,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 						
 						
 							<div class='reveal' id='vModal$y' data-reveal data-animation-in='slide-in-down' data-animation-out='slide-out-up'>
-							  <h1>".$result['title']."</h1>".$z."
+							  <h5>".$result['title']."</h5>".$z."
 							  <button class='close-button' data-close aria-label='Close modal' type='button'>
 								<span aria-hidden='true'>&times;</span>
 							  </button>

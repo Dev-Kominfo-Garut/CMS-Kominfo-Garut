@@ -96,7 +96,10 @@
             margin: 0;
             border-radius: 0;
             background-color: #cacaca;
-        }
+	}
+	.orbit-bullets button.is-active {
+	    background-color: {{setting('site.color_1')}};
+	}	
 	</style>
 </head>
 <body>
