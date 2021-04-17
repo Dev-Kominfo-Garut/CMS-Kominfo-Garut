@@ -473,7 +473,9 @@ class PageController extends VoyagerBaseController
 
         if (!$request->has('_tagging')) {
             if (auth()->user()->can('browse', $data)) {
-                $redirect = redirect()->route("voyager.{$dataType->slug}.index");
+                // $redirect = redirect()->route("voyager.{$dataType->slug}.index");
+
+                $redirect = redirect()->route("voyager.page-blocks.edit",["id" => $data->id]);
             } else {
                 $redirect = redirect()->back();
             }
@@ -494,6 +496,33 @@ class PageController extends VoyagerBaseController
         return array_map(function ($field) {
             return array_key_exists('placeholder', $field) ? $field['placeholder'] : '';
         }, config("page-blocks.$configKey.fields"));
+    }
+
+    public function getTemplates($id)
+    {
+        $template = Template::find($id);
+
+        $blocks = is_array($template->blocks) ? $template : json_decode($template->blocks, true);
+
+        if(count($blocks) != 0){
+            $res = [];
+            for ($i = 0; $i < count($blocks); $i++) {
+                list($type, $path) = explode('|', $blocks[$i]);
+    
+                $res[$i] = $this->generatePlaceholders($path);
+              }
+
+            return response()->json(['data' => [
+                'res' => $res,
+                'status'  => 200,
+                'message' => 'Success load template',
+            ]], 200);
+        }
+
+        return response()->json(['data' => [
+            'status'  => 400,
+            'message' => 'Error load template',
+        ]], 200);
     }
 
     //***************************************
