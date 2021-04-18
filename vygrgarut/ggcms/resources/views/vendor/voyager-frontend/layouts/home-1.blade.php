@@ -54,13 +54,20 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
       display: none!important;
     }
 
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.orbit-next, .orbit-previous {top:43%}
 </style>
 
 {{--  category:slider  --}}
 <main class="main-content">
+<div class='grid-container full'>
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
   <div class="orbit-wrapper">
-    <div class="orbit-controls">
+    <div class="orbit-controls" style='bottom:100px;'>
       <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
       <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     </div>
@@ -87,7 +94,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 		}
 		echo "
 			<figure class='orbit-figure'>
-				<img class='orbit-image' src='$x' style='height: 565px'>
+				<img class='orbit-image img-responsive' src='$x'>
 			</figure>
 		</li>";
 	}
@@ -104,7 +111,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 			@endphp
 			<br>
 		</marquee>
-        <nav class="orbit-bullets" style='bottom:120px; opacity:0.5;'>
+        <nav class="orbit-bullets" style='bottom:110px; opacity:0.8;'>
         @php
         $pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 11)->get();
         $x = -1;
@@ -125,7 +132,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
         @endphp
         </nav>
 </div>
-<hr style="border-bottom:10px solid transparent;">
+</div>
 
 {{--  SLIDER HERE  --}}
 <div class="grid-container">

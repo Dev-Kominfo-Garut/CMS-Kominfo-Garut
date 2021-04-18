@@ -3,13 +3,13 @@
          <div class="grid-container full" style="padding-left:1rem;padding-right:1rem;">
              <div class="grid-x" style="color:white;">
 
-                 <div class="columns small-4 large-2 medium-text-left">
+                 <div class="columns small-12 large-2 medium-text-left">
                      <img src="/storage/<?php echo e(setting('site.logo')); ?>"><br>
                      <?php echo e(setting('site.address')); ?>
 
 
                  </div>
-                 <div class="columns small-4 large-7 medium-text-center" style="padding-left:15px">
+                 <div class="columns small-4 large-7 medium-text-center show-for-medium" style="padding-left:15px;padding-right:15px">
                      <!-- ... -->
                      <a onclick="window.open('<?php echo e(setting('site.link_facebook')); ?>');" href="#"
                          style="color:white"><img src="/storage/settings/April2021/fb.png" width="16px">
@@ -38,12 +38,12 @@ $xc = exec('cat /home/ubuntu/awstat.log', $res);
 foreach ($res as $r) {
     echo $r . "\n";
 }
-?>/pre>
+?></pre>
       </div>
      </div>
     
     </div>
-    <div class="columns small-4 large-3 medium-text-right" style="padding-left:15px"><!-- ... -->
+    <div class="columns small-12 large-3 medium-text-right"><!-- ... -->
     
     <div class="map-responsive">
     <?php echo setting('site.map'); ?>

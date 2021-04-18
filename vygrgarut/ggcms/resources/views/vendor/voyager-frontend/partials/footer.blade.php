@@ -8,7 +8,7 @@
                      {{ setting('site.address') }}
 
                  </div>
-                 <div class="columns small-4 large-7 medium-text-center show-for-medium" style="padding-left:15px">
+                 <div class="columns small-4 large-7 medium-text-center show-for-medium" style="padding-left:15px;padding-right:15px">
                      <!-- ... -->
                      <a onclick="window.open('{{ setting('site.link_facebook') }}');" href="#"
                          style="color:white"><img src="/storage/settings/April2021/fb.png" width="16px">
@@ -42,7 +42,7 @@ foreach ($res as $r) {
      </div>
     
     </div>
-    <div class="columns small-12 large-3 medium-text-right" style="padding-left:15px"><!-- ... -->
+    <div class="columns small-12 large-3 medium-text-right"><!-- ... -->
     
     <div class="map-responsive">
     {!! setting('site.map') !!}

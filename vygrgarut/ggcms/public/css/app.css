@@ -4372,7 +4372,7 @@ select:not([multiple]) {
 }
 .dropdown.menu > li.is-active > a {
   background: transparent;
-  color: #22A7F0;
+  color: #f5f5f5;
 }
 .no-js .dropdown.menu ul {
   display: none;
