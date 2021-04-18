@@ -255,7 +255,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 		</div> <!-- /.cell -->
 		<div class="cell medium-3 text-center medium-text-left">
 			<h5>Pengumuman</h5><hr>
-			<div class="grid-container wide-article-link" style="border:2px solid {{ setting('site.color_1') }};;border-bottom:5px solid {{ setting('site.color_1') }};">
+			<div class="grid-container wide-article-link" style="border:1px solid {{ setting('site.color_1') }};;border-bottom:3px solid {{ setting('site.color_1') }};">
 				@php
 				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 4)->orderBy('published_date','desc')->limit(4)->get();
 				foreach($pengPost as $result){
@@ -267,7 +267,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 			</div><a href="/blog/pengumuman"><i class='fa fa-folder-open'></i> Arsip Pengumuman</a>
 			<div class="vspace-medium-1"></div>
 			<h5>Agenda Kegiatan</h5><hr>
-			<div class="grid-container wide-article-link" style="border:2px solid {{ setting('site.color_1') }};;border-bottom:5px solid {{ setting('site.color_1') }};">
+			<div class="grid-container wide-article-link" style="border:1px solid {{ setting('site.color_1') }};;border-bottom:3px solid {{ setting('site.color_1') }};">
 				@php
 				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 5)->orderBy('published_date','desc')->limit(4)->get();
 				foreach($pengPost as $result){
