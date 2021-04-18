@@ -8171,7 +8171,7 @@ footer.bottom-footer .copyright {
 }
 
 .top-bar {
-  border-bottom: 1px solid #f0f0f0;
+  /* border-bottom: 1px solid #f0f0f0; */
 }
 .top-bar .header-logo {
   max-width: 156px;

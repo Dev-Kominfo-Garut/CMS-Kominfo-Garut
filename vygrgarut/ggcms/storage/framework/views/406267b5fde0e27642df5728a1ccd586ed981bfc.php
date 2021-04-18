@@ -1,0 +1,1 @@
+<?php echo $__env->make('voyager-frontend::modules.errors.404', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/ubuntu/git-cms-garut/CMS-Kominfo-Garut/vygrgarut/ggcms/resources/views/errors/404.blade.php ENDPATH**/ ?>

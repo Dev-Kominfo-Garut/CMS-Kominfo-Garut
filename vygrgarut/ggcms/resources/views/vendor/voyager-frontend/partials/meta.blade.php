@@ -76,7 +76,7 @@
             line-height: 20px;
             font-weight: 400;
             color: #454545;
-            background-color: #fdfdfd;
+            background-color: #f6f6f6;
             overflow-x: hidden;
             -webkit-text-size-adjust: 100%;
             -webkit-overflow-scrolling: touch;
@@ -103,7 +103,7 @@
         .top-bar,
         .top-bar ul {
             background-color: {{ setting('site.color_1') }};
-            color: #fdfdfd
+            color: #f6f6f6
         }
 
         a,
@@ -125,29 +125,32 @@
         }
 
         .top-bar .top-bar-right a {
-            color: #fdfdfd;
+            color: #f6f6f6;
             font-weight: bold;
         }
 
         .top-bar .top-bar-right a:hover {
-            color: #fdfdfd;
+            color: #f6f6f6;
             font-weight: bold;
         }
 
         .dropdown.menu>li.is-dropdown-submenu-parent>a::after {
-            border-color: #fdfdfd transparent transparent;
-        }
-
+            border-color: #f6f6f6 transparent transparent;
+	}
+	.dropdown.menu > li.is-active > a {
+  	  background: transparent;
+	  color: #f6f6f6;
+	}
         .menu a,
         .menu .button {
-            color: #fdfdfd;
+            color: #f6f6f6;
             font-weight: bold;
         }
 
         .orbit-bullets button {
-            width: 35px;
-            height: 7px;
-            margin: 0;
+            width: 9px;
+            height: 9px;
+            margin: 9px;
             border-radius: 0;
             background-color: #cacaca;
         }
@@ -183,7 +186,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
         integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
-        crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
+    <script>
+	$(document).ready(function(){
+		window.scrollTo(0, 1);
+	});
+    </script>
 </head>
 
 <body>

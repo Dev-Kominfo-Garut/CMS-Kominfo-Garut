@@ -41,8 +41,8 @@
                 </ul> <!-- /.menu -->
             </div>
 
-            <div class="top-bar-right show-for-medium">
-                <ul class="dropdown menu" data-dropdown-menu>
+	    <div class="top-bar-right show-for-medium">
+		<ul class="dropdown menu" data-dropdown-menu>
                     @include('voyager-frontend::partials.menu-right')
                 </ul>
             </div>
