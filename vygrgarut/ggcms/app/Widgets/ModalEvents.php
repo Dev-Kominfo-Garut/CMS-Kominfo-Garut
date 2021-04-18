@@ -21,7 +21,7 @@ class ModalEvents extends AbstractWidget
      */
     public function run()
     {
-        $events = Event::where('start_date', '>=', Carbon::now()->toDateTimeString())->where('end_date', '<=', Carbon::now()->addMonths(1)->toDateTimeString())->get();
+        $events = Event::where('start_date', '>=', Carbon::now()->toDateTimeString())->where('start_date', '<=', Carbon::now()->addMonths(1)->toDateTimeString())->get();
 
 
         return view('widgets.modal_events', [
