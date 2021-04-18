@@ -140,7 +140,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 		<div class="cell medium-8 text-center medium-text-left">
 			<h5>Berita</h5><hr>
 			@php	
-				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 3)->orderBy('published_date','desc')->limit(6)->get();
+				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 3)->orderBy('published_date','desc')->limit(3)->get();
 				// var_dump($blogPost);
 				foreach($blogPost as $result){
 					// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
