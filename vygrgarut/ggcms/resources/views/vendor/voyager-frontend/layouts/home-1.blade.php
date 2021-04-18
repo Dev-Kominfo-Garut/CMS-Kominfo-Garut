@@ -33,7 +33,27 @@
 	background:transparent;
 }
 
-h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
+h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
+
+#gpr-kominfo-widget-container {
+      height: 765px!important;
+	  background-color: #fdfdfd!important;
+	  border-top: 1px solid #fdfdfd!important;
+    }
+
+    #gpr-kominfo-widget-body {
+      overflow: auto;
+      height: 760px!important;
+	  
+    }
+
+    #gpr-kominfo-widget-footer{
+      display: none!important;
+    }
+    #gpr-kominfo-widget-header{
+      display: none!important;
+    }
+
 </style>
 
 {{--  category:slider  --}}
@@ -141,40 +161,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 				}
 			@endphp
 			<a href="/blog/berita"><i class='fa fa-folder-open'></i> Arsip Berita</a>
-		</div> <!-- /.cell -->
-		<div class="cell medium-1 text-center medium-text-left">
-		</div> <!-- /.cell -->
-		<div class="cell medium-3 text-center medium-text-left">
-			<h5>Pengumuman</h5><hr>
-			<div class="grid-container wide-article-link" style="border:2px solid {{ setting('site.color_1') }};;border-bottom:5px solid {{ setting('site.color_1') }};">
-				@php
-				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 4)->orderBy('published_date','desc')->limit(4)->get();
-				foreach($pengPost as $result){
-					echo "<div class='grid-x'>
-					<div class='article-title'><a href='/blog/pengumuman/" . $result['slug'] . "'><i class='fa fa-angle-right'></i> " . $result['title'] . "</a></div>
-					</div>";
-				}
-				@endphp
-			</div><a href="/blog/pengumuman"><i class='fa fa-folder-open'></i> Arsip Pengumuman</a>
 			<div class="vspace-medium-1"></div>
-			<h5>Agenda Kegiatan</h5><hr>
-			<div class="grid-container wide-article-link" style="border:2px solid {{ setting('site.color_1') }};;border-bottom:5px solid {{ setting('site.color_1') }};">
-				@php
-				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 5)->orderBy('published_date','desc')->limit(4)->get();
-				foreach($pengPost as $result){
-					echo "<div class='grid-x'>
-					<div class='article-title'><a href='/blog/agendakegiatan/" . $result['slug'] . "'><i class='fa fa-calendar-alt'></i> " . $result['title'] . "</a></div>
-					</div>";
-				}
-				@endphp
-			</div><a href="/blog/agendakegiatan"><i class='fa fa-folder-open'></i> Arsip Agenda Kegiatan</a>
-		</div> <!-- /.cell -->
-	</div> <!-- /.grid -->
-</div>
-<hr style="border-bottom:10px solid transparent;">
-<div class="grid-container">
-	<div class="grid-x">
-	<div class="cell medium-8 text-center medium-text-center">
 			<h5 class="medium-text-left">Link</h5>
 			<hr>
 			<div class="splide text-center" style="background:{{ setting('site.color_1') }};padding-top:25px;">
@@ -182,8 +169,8 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 					document.addEventListener( 'DOMContentLoaded', function () {
 						new Splide( '.splide', {
 							type   : 'loop',
-							perPage: 3,
-							perMove: 1,
+							perPage: 5,
+							perMove: 2,
 							pagination: false,
 						} ).mount();
 					} );
@@ -195,63 +182,14 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 						foreach($pengPost as $result){
 							$x = "/storage/" . $result['image'];
 							$y = $result['excerpt'];
-							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:180px;border-radius: 15px;'></a></li>";
+							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:100px;border-radius: 15px;'></a></li>";
 						}
 						@endphp
 					</ul>
 					<br>
 				</div>
 			</div>
-		
-	</div> <!-- /.cell -->
-		<div class="cell medium-1 text-center medium-text-left">
-		</div>
-		<div class="cell medium-3 text-center medium-text-left"> 
-			<h5>Info Grafis</h5><hr>
-				<div class="orbit" role="region" aria-label="Favorite Text Ever" data-orbit>
-				  <ul class="orbit-container">
-					@php
-					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 9)->orderBy('published_date','desc')->limit(3)->get();
-					foreach($pengPost as $result){
-						// $x = "/storage/" . $result['image'];
-						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
-						$y = $result['slug'];
-						echo "<li class='is-active orbit-slide'>
-							<a href='/blog/infografis/$y'><img class='thumbnail' src='$x' style='width: 100%'></a>
-						</li>";
-					}
-					@endphp
-				  </ul>
-				  <nav class="orbit-bullets">
-					@php
-					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 8)->orderBy('published_date','desc')->limit(3)->get();
-					$x = -1;
-					foreach($pengPost as $result){
-						$x = $x+1;
-						if($x == 0){
-						echo "
-							<button class='is-active' data-slide='$x'><span class='show-for-sr'></span></button>
-						";
-							
-						}else{
-						echo "
-							<button data-slide='$x'><span class='show-for-sr'></span></button>
-						";
-
-						}
-					}
-					@endphp
-				  </nav>
-				</div>
-			
-		</div>
-	</div>
-</div>
-<hr style="border-bottom:10px solid transparent;">
-
-<div class="grid-container">
-	<div class="grid-x">
-		<div class="cell medium-8 text-center medium-text-left">
+			<div class="vspace-medium-1"></div>
 			<h5>Galeri Foto</h5><hr>
 			<div class="grid-container">
 				<div class="grid-x">
@@ -316,13 +254,74 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 		<div class="cell medium-1 text-center medium-text-left">
 		</div> <!-- /.cell -->
 		<div class="cell medium-3 text-center medium-text-left">
+			<h5>Pengumuman</h5><hr>
+			<div class="grid-container wide-article-link" style="border:1px solid {{ setting('site.color_1') }};;border-bottom:3px solid {{ setting('site.color_1') }};">
+				@php
+				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 4)->orderBy('published_date','desc')->limit(4)->get();
+				foreach($pengPost as $result){
+					echo "<div class='grid-x'>
+					<div class='article-title'><a href='/blog/pengumuman/" . $result['slug'] . "'><i class='fa fa-angle-right'></i> " . $result['title'] . "</a></div>
+					</div>";
+				}
+				@endphp
+			</div><a href="/blog/pengumuman"><i class='fa fa-folder-open'></i> Arsip Pengumuman</a>
+			<div class="vspace-medium-1"></div>
+			<h5>Agenda Kegiatan</h5><hr>
+			<div class="grid-container wide-article-link" style="border:1px solid {{ setting('site.color_1') }};;border-bottom:3px solid {{ setting('site.color_1') }};">
+				@php
+				$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 5)->orderBy('published_date','desc')->limit(4)->get();
+				foreach($pengPost as $result){
+					echo "<div class='grid-x'>
+					<div class='article-title'><a href='/blog/agendakegiatan/" . $result['slug'] . "'><i class='fa fa-calendar-alt'></i> " . $result['title'] . "</a></div>
+					</div>";
+				}
+				@endphp
+			</div><a href="/blog/agendakegiatan"><i class='fa fa-folder-open'></i> Arsip Agenda Kegiatan</a>
+			<div class="vspace-medium-1"></div>			
+			<h5>Info Grafis</h5><hr>
+				<div class="orbit" role="region" aria-label="Favorite Text Ever" data-orbit>
+				  <ul class="orbit-container">
+					@php
+					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 9)->orderBy('published_date','desc')->limit(3)->get();
+					foreach($pengPost as $result){
+						// $x = "/storage/" . $result['image'];
+						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						$y = $result['slug'];
+						echo "<li class='is-active orbit-slide'>
+							<a href='/blog/infografis/$y'><img class='thumbnail' src='$x' style='width: 100%'></a>
+						</li>";
+					}
+					@endphp
+				  </ul>
+				  <nav class="orbit-bullets">
+					@php
+					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 8)->orderBy('published_date','desc')->limit(3)->get();
+					$x = -1;
+					foreach($pengPost as $result){
+						$x = $x+1;
+						if($x == 0){
+						echo "
+							<button class='is-active' data-slide='$x'><span class='show-for-sr'></span></button>
+						";
+							
+						}else{
+						echo "
+							<button data-slide='$x'><span class='show-for-sr'></span></button>
+						";
+
+						}
+					}
+					@endphp
+				  </nav>
+				</div>
+			<div class="vspace-medium-1"></div>			
 			<h5>Government Public Relation</h5><hr>
 			<script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
 			<div id="gpr-kominfo-widget-container" style="margin-bottom: 15px;"></div>
 		</div> <!-- /.cell -->
 	</div> <!-- /.grid -->
 </div>
-<hr style="border-bottom:10px solid transparent;">
+<div class="vspace-medium-2"></div>
     @yield('content')
 </main>
 
