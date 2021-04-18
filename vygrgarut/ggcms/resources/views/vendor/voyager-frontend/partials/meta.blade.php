@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -27,14 +28,20 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/') }}/css/app.css">
 
     @if (setting('site.google_analytics_tracking_id'))
-    <!-- Google Analytics (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ setting('site.google_analytics_tracking_id') }}"></script>
+        <!-- Google Analytics (gtag.js) -->
+        <script async
+            src="https://www.googletagmanager.com/gtag/js?id={{ setting('site.google_analytics_tracking_id') }}">
+        </script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
             gtag('js', new Date());
 
             gtag('config', '{{ setting('site.google_analytics_tracking_id') }}');
+
         </script>
     @endif
     @if (setting('admin.google_recaptcha_site_key'))
@@ -47,6 +54,7 @@
             function onSubmit(token) {
                 document.getElementById(window.formId).submit();
             }
+
         </script>
     @endif
 
@@ -54,69 +62,124 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
-    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=606b1ade3166d20011624e4a&product=inline-share-buttons" async="async"></script>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
-	<style>
-	/** #-282f34 #-089c9e #-184424*/
-		body {
-			
-			font-family: 'Montserrat', sans-serif;
-			
-	font-size: 14px;
-	line-height: 20px;
-	font-weight: 400;
-	color: #454545;
-	background-color: #fdfdfd;
-	overflow-x: hidden;
-	-webkit-text-size-adjust: 100%;
-	-webkit-overflow-scrolling: touch;
-	-webkit-font-smoothing: antialiased !important;
-	text-align: justify;
-		}
-		h5 { font-family: 'Montserrat', sans-serif; }
-		hr { border-bottom: 2px solid {{setting('site.color_1')}}; }
-		footer.top-footer { background-color: {{setting('site.color_1')}}; }
-		footer.bottom-footer { background-color: {{setting('site.color_1')}}; }
-		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}};color:#fdfdfd }
-		a, p { color: #454545; }
-        a:hover {color: {{ setting('site.color_1') }}}
-		.top-bar, .top-bar ul { background-color: {{setting('site.color_1')}}; }
-		.dropdown.menu > li > a { background: none; }
-		.top-bar .top-bar-right a { color: #fdfdfd; font-weight: bold;}
-		.top-bar .top-bar-right a:hover { color: #fdfdfd; font-weight: bold;}
-		.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: #fdfdfd transparent transparent; }
-        .menu a, .menu .button {
-	    color:#fdfdfd;
-		font-weight: bold;
+    <script type="text/javascript"
+        src="https://platform-api.sharethis.com/js/sharethis.js#property=606b1ade3166d20011624e4a&product=inline-share-buttons"
+        async="async"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        /** #-282f34 #-089c9e #-184424*/
+        body {
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #454545;
+            background-color: #fdfdfd;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -webkit-overflow-scrolling: touch;
+            -webkit-font-smoothing: antialiased !important;
+            text-align: justify;
         }
-        
-        .orbit-bullets button{
+
+        h5 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        hr {
+            border-bottom: 2px solid {{ setting('site.color_1') }};
+        }
+
+        footer.top-footer {
+            background-color: {{ setting('site.color_1') }};
+        }
+
+        footer.bottom-footer {
+            background-color: {{ setting('site.color_1') }};
+        }
+
+        .top-bar,
+        .top-bar ul {
+            background-color: {{ setting('site.color_1') }};
+            color: #fdfdfd
+        }
+
+        a,
+        p {
+            color: #454545;
+        }
+
+        a:hover {
+            color: {{ setting('site.color_1') }}
+        }
+
+        .top-bar,
+        .top-bar ul {
+            background-color: {{ setting('site.color_1') }};
+        }
+
+        .dropdown.menu>li>a {
+            background: none;
+        }
+
+        .top-bar .top-bar-right a {
+            color: #fdfdfd;
+            font-weight: bold;
+        }
+
+        .top-bar .top-bar-right a:hover {
+            color: #fdfdfd;
+            font-weight: bold;
+        }
+
+        .dropdown.menu>li.is-dropdown-submenu-parent>a::after {
+            border-color: #fdfdfd transparent transparent;
+        }
+
+        .menu a,
+        .menu .button {
+            color: #fdfdfd;
+            font-weight: bold;
+        }
+
+        .orbit-bullets button {
             width: 35px;
             height: 7px;
             margin: 0;
             border-radius: 0;
             background-color: #cacaca;
-	}
-	.orbit-bullets button.is-active {
-	    background-color: {{setting('site.color_1')}};
-	}	
-    .tetews {background-color:{{setting('site.color_1')}};}
-    .map-responsive{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-}
-.menu.submenu{
-    z-index: 99;
-}
-	</style>
+        }
+
+        .orbit-bullets button.is-active {
+            background-color: {{ setting('site.color_1') }};
+        }
+
+        .tetews {
+            background-color: {{ setting('site.color_1') }};
+        }
+
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .menu.submenu {
+            z-index: 99;
+        }
+
+    </style>
 </head>
+
 <body>
