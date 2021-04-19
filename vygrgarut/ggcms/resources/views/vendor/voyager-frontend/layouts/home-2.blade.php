@@ -3,7 +3,7 @@
 
 <style>
 .wide-article-link {
-  background-color: #fdfdfd;
+  background-color: #f6f6f6;
   padding: 1rem 1rem 0.5rem;
   border-bottom: 2px solid {{setting('site.color_1')}};
   margin-bottom: 1rem;
@@ -33,14 +33,41 @@
 	background:transparent;
 }
 
-h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
+h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
+
+#gpr-kominfo-widget-container {
+      height: 600px!important;
+	  background-color: #f6f6f6!important;
+	  border-top: 1px solid #f6f6f6!important;
+    }
+
+    #gpr-kominfo-widget-body {
+      overflow: auto;
+      height: 600px!important;
+      background-color:#f6f6f6!important;  
+    }
+
+    #gpr-kominfo-widget-footer{
+      display: none!important;
+    }
+    #gpr-kominfo-widget-header{
+      display: none!important;
+    }
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.orbit-next, .orbit-previous {top:43%}
 </style>
 
 {{--  category:slider  --}}
 <main class="main-content">
+<div class='grid-container full'>
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
   <div class="orbit-wrapper">
-    <div class="orbit-controls">
+    <div class="orbit-controls" style='bottom:100px;'>
       <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
       <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     </div>
@@ -50,8 +77,8 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 	$z = 0;
 	
 	foreach($pengPost as $result){
-		// $x = "/storage/" . $result['image'];
-		$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+		$x = "/storage/" . $result['image'];
+		// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
 		$y = $result['title'];
 		$a = $result['slug'];
 		if($z == 1){
@@ -67,14 +94,14 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 		}
 		echo "
 			<figure class='orbit-figure'>
-				<img class='orbit-image' src='$x' style='height: 440px'>
+				<img class='orbit-image img-responsive' src='$x'>
 			</figure>
 		</li>";
 	}
 	@endphp
 	</ul>
   </div>
-		<marquee style="color:white;background-color:{{ setting('site.color_1') }};padding-bottom:20px;"><br>
+		<marquee style="color: white;bottom: 40px;opacity: 0.7;position: absolute;padding-bottom: 20px;background-color:{{ setting('site.color_1') }};"><br>
 			@php
 				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 14)->orderBy('published_date','desc')->limit(3)->get();
 				foreach($blogPost as $result){
@@ -84,7 +111,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 			@endphp
 			<br>
 		</marquee>
-        <nav class="orbit-bullets" style='paddding-bottom:20px;'>
+        <nav class="orbit-bullets" style='bottom:110px; opacity:0.8;'>
         @php
         $pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 11)->get();
         $x = -1;
@@ -105,10 +132,9 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
         @endphp
         </nav>
 </div>
-<hr style="border-bottom:10px solid transparent;">
+</div>
 
 {{--  SLIDER HERE  --}}
-
 <div class="grid-container">
 	<div class="grid-x">
 		<div class="cell medium-3 text-center medium-text-left">
@@ -141,10 +167,11 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 		<div class="cell medium-8 text-center medium-text-left">
 			<h5>Berita</h5><hr>
 			@php	
-				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 3)->orderBy('published_date','desc')->limit(6)->get();
+				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 3)->orderBy('published_date','desc')->limit(3)->get();
 				// var_dump($blogPost);
 				foreach($blogPost as $result){
-					$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+					// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
+					$x = "/storage/".$result['image'];
 					echo "<div class='wide-article-link'>";
 						echo "<h5 class='article-title'>";
 						echo "<a href='/blog/berita/" . $result['slug'] . "'>";
@@ -220,7 +247,8 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 7)->orderBy('published_date','desc')->limit(3)->get();
 					$y = 0;
 					foreach($pengPost as $result){
-						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						$x = "/storage/".$result['image'];
 						$y = $y+1;
 						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:5px'>
 						<img class='thumbnail' src='$x' style='width: 100%' data-open='exampleModal$y'>
@@ -241,7 +269,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 					@endphp
 					<a href="/blog/galerifoto"><i class='fa fa-folder-open'></i> Arsip Foto</a>
 				</div>
-		</div>
+			</div>
 		<div class="cell medium-12 text-center medium-text-center">
 			<h5>Galeri Video</h5><hr>
 			<div class="grid-container">
@@ -251,7 +279,8 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 					$y = 0;
 					foreach($pengPost as $result){
 						$y = $y+1;
-						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						$x = "/storage/".$result['image'];
 						$z = str_replace('"', "'", $result['excerpt']);
 						echo "<div class='cell medium-4 text-center medium-text-center' style='padding:5px'>
 						<img class='thumbnail' src='$x' style='width: 100%' data-open='vModal$y'>
@@ -286,8 +315,8 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 					@php
 					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 9)->orderBy('published_date','desc')->limit(3)->get();
 					foreach($pengPost as $result){
-						// $x = "/storage/" . $result['image'];
-						$x = "/storage/resized/-260x175/" . substr($result['image'],1);
+						$x = "/storage/" . $result['image'];
+						// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
 						$y = $result['slug'];
 						echo "<li class='is-active orbit-slide'>
 							<a href='/blog/infografis/$y'><img class='thumbnail' src='$x' style='width: 100%'></a>
@@ -295,7 +324,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; }
 					}
 					@endphp
 				  </ul>
-				  <nav class="orbit-bullets">
+				  <nav class="orbit-bullets" style='bottom:80px'>
 					@php
 					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 8)->orderBy('published_date','desc')->limit(3)->get();
 					$x = -1;
