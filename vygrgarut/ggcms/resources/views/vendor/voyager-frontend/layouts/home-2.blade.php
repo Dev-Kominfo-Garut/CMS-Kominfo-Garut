@@ -206,12 +206,12 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 	<div class="cell medium-12 text-center">
 		<h5 class='text-center'>Link</h5>
 	</div>
-	<div class="cell medium-12 text-center medium-text-center" style='background:#282f34'>
+	<div class="cell medium-12 text-center medium-text-center">
 		<script>
 			document.addEventListener( 'DOMContentLoaded', function () {
 				new Splide( '.splide', {
 					type   : 'loop',
-					perPage: 5,
+					perPage: 6,
 					perMove: 1,
 					pagination: false,
 				} ).mount();
