@@ -190,7 +190,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 						foreach($pengPost as $result){
 							$x = "/storage/" . $result['image'];
 							$y = $result['excerpt'];
-							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:100px;border-radius: 15px;'></a></li>";
+							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:135px;border-radius: 12px;'></a></li>";
 						}
 						@endphp
 					</ul>

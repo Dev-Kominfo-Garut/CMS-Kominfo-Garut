@@ -140,7 +140,7 @@ h5{ color:<?php echo e(setting('site.color_1')); ?>; font-weight: bold; font-siz
 		<div class="cell medium-8 text-center medium-text-left">
 			<h5>Berita</h5><hr>
 			<?php	
-				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 3)->orderBy('published_date','desc')->limit(6)->get();
+				$blogPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 3)->orderBy('published_date','desc')->limit(3)->get();
 				// var_dump($blogPost);
 				foreach($blogPost as $result){
 					// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
@@ -190,7 +190,7 @@ h5{ color:<?php echo e(setting('site.color_1')); ?>; font-weight: bold; font-siz
 						foreach($pengPost as $result){
 							$x = "/storage/" . $result['image'];
 							$y = $result['excerpt'];
-							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:100px;border-radius: 15px;'></a></li>";
+							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:150px;border-radius: 12px;'></a></li>";
 						}
 						?>
 					</ul>
