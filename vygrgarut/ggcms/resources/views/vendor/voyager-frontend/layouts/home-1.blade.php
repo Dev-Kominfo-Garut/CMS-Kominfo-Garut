@@ -94,7 +94,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 		}
 		echo "
 			<figure class='orbit-figure'>
-				<img class='orbit-image img-responsive' src='$x'>
+				<img class='orbit-image img-responsive oorbit-custom' src='$x'>
 			</figure>
 		</li>";
 	}
