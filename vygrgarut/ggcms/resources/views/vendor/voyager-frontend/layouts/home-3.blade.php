@@ -320,7 +320,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 						// $x = "/storage/resized/-260x175/" . substr($result['image'],1);
 						$y = $result['slug'];
 						echo "<li class='is-active orbit-slide'>
-							<a href='/blog/infografis/$y'><img class='thumbnail' src='$x' style='width: 100%'></a>
+							<a href='/blog/infografis/$y'><img class='thumbnail' src='$x' style='width: 80%'></a>
 						</li>";
 					}
 					@endphp
