@@ -57,7 +57,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 .img-responsive {
     display: block;
     max-width: 100%;
-    height: auto;
+    height: 90vh;
 }
 .orbit-next, .orbit-previous {top:43%}
 </style>

@@ -3,12 +3,6 @@
 <?php $__env->startSection('page_title', 'Blog Posts'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <div
-    class="page-title">
-    <div class="grid-container">
-        <h1>Pencarian</h1>
-    </div>
-    </div>
 
     <?php echo $__env->make('voyager-frontend::partials.breadcrumbs', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
