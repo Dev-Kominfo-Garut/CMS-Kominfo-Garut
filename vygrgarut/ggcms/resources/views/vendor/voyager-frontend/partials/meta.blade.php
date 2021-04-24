@@ -118,6 +118,7 @@
         .top-bar,
         .top-bar ul {
             background-color: {{ setting('site.color_1') }};
+            border-bottom: 4px solid {{ setting('site.color_1') }};
         }
 
         .dropdown.menu>li>a {
