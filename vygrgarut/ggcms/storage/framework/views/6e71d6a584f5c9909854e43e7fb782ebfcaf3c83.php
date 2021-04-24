@@ -172,7 +172,7 @@ h5{ color:<?php echo e(setting('site.color_1')); ?>; font-weight: bold; font-siz
 			<div class="vspace-medium-1"></div>
 			<h5 class="medium-text-left">Link</h5>
 			<hr>
-			<div class="splide text-center" style="background:<?php echo e(setting('site.color_1')); ?>;padding-top:25px;">
+			<div class="splide text-center" style="background:<?php echo e(setting('site.color_1')); ?>;padding-top:5px;padding-bottom:5px">
 				<script>
 					document.addEventListener( 'DOMContentLoaded', function () {
 						new Splide( '.splide', {
@@ -194,7 +194,6 @@ h5{ color:<?php echo e(setting('site.color_1')); ?>; font-weight: bold; font-siz
 						}
 						?>
 					</ul>
-					<br>
 				</div>
 			</div>
 			<div class="vspace-medium-1"></div>

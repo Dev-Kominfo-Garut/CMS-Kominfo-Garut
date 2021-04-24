@@ -172,7 +172,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 			<div class="vspace-medium-1"></div>
 			<h5 class="medium-text-left">Link</h5>
 			<hr>
-			<div class="splide text-center" style="background:{{ setting('site.color_1') }};padding-top:25px;">
+			<div class="splide text-center" style="background:{{ setting('site.color_1') }};padding-top:5px;padding-bottom:5px">
 				<script>
 					document.addEventListener( 'DOMContentLoaded', function () {
 						new Splide( '.splide', {
@@ -190,11 +190,10 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 						foreach($pengPost as $result){
 							$x = "/storage/" . $result['image'];
 							$y = $result['excerpt'];
-							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:135px;border-radius: 12px;'></a></li>";
+							echo "<li class='splide__slide'><a href='#' onclick=\"window.open('$y');\"><img src='$x' style='width:150px;border-radius: 12px;'></a></li>";
 						}
 						@endphp
 					</ul>
-					<br>
 				</div>
 			</div>
 			<div class="vspace-medium-1"></div>
