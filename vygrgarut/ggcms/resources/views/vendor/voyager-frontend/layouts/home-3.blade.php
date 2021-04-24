@@ -356,7 +356,6 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 		</div>
 	</div>
 </div>
-<hr style="border-bottom:10px solid transparent;">
     @yield('content')
 </main>
 
