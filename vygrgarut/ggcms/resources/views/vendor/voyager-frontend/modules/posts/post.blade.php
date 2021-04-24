@@ -6,7 +6,24 @@
 @section('page_banner')
 
 @section('content')
-    @include('voyager-frontend::partials.page-title')
+<style>
+.page-title {
+	/* background-image: linear-gradient({{ setting('site.color_1') }}, #151515), url(/storage/{!! $post->image !!}); */ 
+	background-image: linear-gradient(rgba(34, 34, 34, 0.9), rgba(240, 240, 240, 0.6)), url(/storage/{!! $post->image !!});
+}
+</style>
+<div
+    class="page-title"
+    @if (View::hasSection('page_banner'))
+    style="background-image: url(@yield('page_banner'))"
+    @endif>
+    <div class="grid-container">
+        <h5>@yield('page_title')</h5>
+        @if (View::hasSection('page_subtitle'))
+            <p>@yield('page_subtitle')</p>
+        @endif
+    </div>
+</div>
 
     <div class="vspace-2"></div>
 

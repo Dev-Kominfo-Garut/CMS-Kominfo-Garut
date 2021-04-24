@@ -4,10 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
     <div
-    class="page-title"
-    <?php if(View::hasSection('page_banner')): ?>
-    style="background-image: url(<?php echo $__env->yieldContent('page_banner'); ?>)"
-    <?php endif; ?>>
+    class="page-title">
     <div class="grid-container">
         <h1>Pencarian</h1>
     </div>

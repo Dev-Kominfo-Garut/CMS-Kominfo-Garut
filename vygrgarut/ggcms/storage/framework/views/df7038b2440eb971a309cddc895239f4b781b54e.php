@@ -5,7 +5,24 @@
 <?php $__env->startSection('page_banner'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <?php echo $__env->make('voyager-frontend::partials.page-title', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<style>
+.page-title {
+	/* background-image: linear-gradient(<?php echo e(setting('site.color_1')); ?>, #151515), url(/storage/<?php echo $post->image; ?>); */ 
+	background-image: linear-gradient(rgba(34, 34, 34, 0.9), rgba(240, 240, 240, 0.6)), url(/storage/<?php echo $post->image; ?>);
+}
+</style>
+<div
+    class="page-title"
+    <?php if(View::hasSection('page_banner')): ?>
+    style="background-image: url(<?php echo $__env->yieldContent('page_banner'); ?>)"
+    <?php endif; ?>>
+    <div class="grid-container">
+        <h5><?php echo $__env->yieldContent('page_title'); ?></h5>
+        <?php if(View::hasSection('page_subtitle')): ?>
+            <p><?php echo $__env->yieldContent('page_subtitle'); ?></p>
+        <?php endif; ?>
+    </div>
+</div>
 
     <div class="vspace-2"></div>
 

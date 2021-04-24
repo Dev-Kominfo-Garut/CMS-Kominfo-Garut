@@ -4,15 +4,6 @@
 @section('page_title', 'Blog Posts')
 
 @section('content')
-    <div
-    class="page-title"
-    @if (View::hasSection('page_banner'))
-    style="background-image: url(@yield('page_banner'))"
-    @endif>
-    <div class="grid-container">
-        <h1>Pencarian</h1>
-    </div>
-    </div>
 
     @include('voyager-frontend::partials.breadcrumbs')
 

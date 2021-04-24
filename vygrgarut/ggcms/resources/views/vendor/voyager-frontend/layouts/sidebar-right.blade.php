@@ -13,9 +13,9 @@
             <div class="cell small-12 medium-3 sidebar">
 
                 <div class="card">
-                    <img alt="" src="https://images.unsplash.com/photo-1473800447596-01729482b8eb?auto=format&fit=crop&w=500&q=50">
+                    <img alt="" src="" style='background-image: linear-gradient({{ setting('site.color_1') }}, #151515), url()'>
                     <div class="card-section">
-                        <h4>Artikel Terkait</h4>
+                        <h5>Artikel Terkait</h5>
                         <ul class="vertical menu">
                             @include('voyager-frontend::modules.posts.posts-url', ['posts' => $relatedPosts])
                         </ul>

@@ -119,6 +119,7 @@
         .top-bar,
         .top-bar ul {
             background-color: <?php echo e(setting('site.color_1')); ?>;
+            border-bottom: 4px solid <?php echo e(setting('site.color_1')); ?>;
         }
 
         .dropdown.menu>li>a {
@@ -182,7 +183,7 @@
         .menu.submenu {
             z-index: 99;
         }
-
+        .oorbit-custom {height: 100vh;}
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
