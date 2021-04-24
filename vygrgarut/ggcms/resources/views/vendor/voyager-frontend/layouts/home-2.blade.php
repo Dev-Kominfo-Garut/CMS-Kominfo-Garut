@@ -310,7 +310,7 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 	<div class="grid-x">
 		<div class="cell medium-7 text-center medium-text-center">
 			<h5>Info Grafis</h5><hr>
-				<div class="orbit" role="region" aria-label="Favorite Text Ever" data-orbit>
+				<div class="orbit" role="region" aria-label="Favorite Text Ever" data-orbit style='height:5px;'>
 				  <ul class="orbit-container">
 					@php
 					$pengPost = \App\Models\BlogPost::with('category')->where('category_id', '=', 9)->orderBy('published_date','desc')->limit(3)->get();
