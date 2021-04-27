@@ -7,20 +7,20 @@
                 <p>There are currently no posts.</p>
             @else
                 @foreach($posts as $post)
-                    <div class="cell small-12 medium-4 large-3">
+                    <div class="cell small-12 medium-4 large-4">
                         <div class="card">
                             <a href="{{ route('voyager-blog-custom.blog.post', ['category' => $post->category->slug,'slug' => $post->slug]) }}">
                                 <img src="{{ imageUrl($post->image, 260, 175) }}" style="width: 100%">
                             </a>
-                            <div class="card-section">
+                            <div class="card-section" style="height: 250px;">
                                 <span class="label secondary">
                                     {{ $post->created_at->format('M. jS Y') }}
                                 </span>
                                 <a href="{{ route('voyager-blog-custom.blog.post', ['category' => $post->category->slug,'slug' => $post->slug]) }}">
-                                    <h4>{{ $post->title }}</h4>
+                                    <h5>{{ $post->title }}</h5>
                                 </a>
                                 @if ($post->excerpt)
-                                    <p>{{ Illuminate\Support\Str::limit($post->excerpt, 50, '&hellip;') }}</p>
+                                    <p>{{ Illuminate\Support\Str::limit($post->excerpt, 100) }}</p>
                                 @endif
                             </div>
                         </div>
