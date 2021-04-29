@@ -246,9 +246,9 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 						echo "
 						
 						
-							<div class='reveal' id='vModal$y' data-reveal data-animation-in='slide-in-down' data-animation-out='slide-out-up'>
+							<div class='reveal' id='vModal$y' data-reset-on-close='true' data-reveal data-animation-in='slide-in-down' data-animation-out='slide-out-up'>
 							  <h5>".$result['title']."</h5>".$z."
-							  <button class='close-button' onClick='closeModal(vModal$y)'  type='button'>
+							  <button class='close-button' data-close aria-label='Close modal'  type='button'>
 								<span aria-hidden='true'>&times;</span>
 							  </button>
 							</div>
@@ -329,13 +329,6 @@ h5{ color:{{ setting('site.color_1') }}; font-weight: bold; font-size: 1.1rem;}
 			<div id="gpr-kominfo-widget-container"></div>
 		</div> <!-- /.cell -->
 	</div> <!-- /.grid -->
-	<script>
-		function closeModal(params) {
-
-			params.innerHTML = params.innerHTML;
-			$('#'+params.id).foundation('close');
-		}
-		</script>
 </div>
     @yield('content')
 </main>
